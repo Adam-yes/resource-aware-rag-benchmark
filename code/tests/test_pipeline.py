@@ -417,19 +417,19 @@ def _figure_check():
     import matplotlib.pyplot as plt
     import numpy as np
     from matplotlib.text import Text
-    ns = {"plt": plt, "np": np, "matplotlib": matplotlib, "Text": Text, "FONT": 9}
+    ns = {"plt": plt, "np": np, "matplotlib": matplotlib, "Text": Text, "FONT": 8}
     exec(src.split("def save(")[0], ns)
     return ns["check"], plt
 
 
 def test_figure_check_rejects_overlap_size_and_covered_points():
     check, plt = _figure_check()
-    plt.rcParams.update({k: 9 for k in ("font.size", "axes.labelsize", "xtick.labelsize", "ytick.labelsize", "legend.fontsize")})
+    plt.rcParams.update({k: 8 for k in ("font.size", "axes.labelsize", "xtick.labelsize", "ytick.labelsize", "legend.fontsize")})
     fig, ax = plt.subplots(figsize=(3, 2), layout="constrained")
     ax.scatter([0.5], [0.5])
     check(fig)                                    # a clean figure passes
-    ax.text(0.2, 0.8, "label", fontsize=9, transform=ax.transAxes)
-    ax.text(0.21, 0.8, "label", fontsize=9, transform=ax.transAxes)
+    ax.text(0.2, 0.8, "label", fontsize=8, transform=ax.transAxes)
+    ax.text(0.21, 0.8, "label", fontsize=8, transform=ax.transAxes)
     with pytest.raises(AssertionError, match="overlap"):
         check(fig)
     fig, ax = plt.subplots(figsize=(3, 2), layout="constrained")
@@ -437,9 +437,9 @@ def test_figure_check_rejects_overlap_size_and_covered_points():
     with pytest.raises(AssertionError, match="font sizes"):
         check(fig)
     fig, ax = plt.subplots(figsize=(3, 2), layout="constrained")
-    ax.tick_params(labelsize=9)
+    ax.tick_params(labelsize=8)
     ax.scatter([0.5], [0.5])
-    ax.text(0.5, 0.5, "on the point", fontsize=9, ha="center", va="center")
+    ax.text(0.5, 0.5, "on the point", fontsize=8, ha="center", va="center")
     with pytest.raises(AssertionError, match="covers"):
         check(fig)
     plt.close("all")

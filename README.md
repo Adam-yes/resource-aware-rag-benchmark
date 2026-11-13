@@ -27,7 +27,7 @@ Maintenance, troubleshooting and operator support in manufacturing rely on techn
 
 This repository measures the whole configuration space instead of sampling it, and then asks three questions on the complete table: how quality and latency trade off, whether configuration search does better than random search, and whether a configuration selected on development questions holds up on questions it has never seen.
 
-The repository accompanies the manuscript "Resource-Aware Retrieval-Augmented Technical Knowledge Access for Smart Manufacturing: A Full-Factorial Benchmark of Evolutionary Configuration Search with Held-Out Validation", which is currently under review.
+The repository accompanies the manuscript "Resource-Aware Retrieval-Augmented Technical Knowledge Access for Smart Manufacturing: Quality–Latency Trade-offs and Configuration Search on a Full-Factorial Benchmark", which is currently under review.
 
 ## Protocol
 
