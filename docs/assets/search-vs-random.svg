@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="t d">
+<title id="t">Search methods compared with random search</title>
+<desc id="d">Inside the lookup table, the genetic algorithm, TPE and coordinate ascent close the gap to the best configuration faster than random search. On held-out manuals none of them beats random search.</desc>
+
+<style>
+  svg { --bg:#fcfcfb; --plane:#f4f4f1; --ink:#0b0b0b; --ink2:#52514e; --mute:#898781;
+        --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --dot:#c9c8c1; --soft:#e7f0fb; }
+  @media (prefers-color-scheme: dark) {
+    svg { --bg:#1a1a19; --plane:#222220; --ink:#f0efec; --ink2:#c3c2b7; --mute:#898781;
+          --grid:#2c2c2a; --axis:#46463f; --border:rgba(255,255,255,.10);
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; --dot:#4f4e49; --soft:#1c2a3c; }
+  }
+  text { font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--ink); }
+  .t-title { font-size: 26px; font-weight: 650; }
+  .t-sub { font-size: 15.5px; fill: var(--ink2); }
+  .t-h { font-size: 16px; font-weight: 600; }
+  .t-lab { font-size: 13.5px; fill: var(--ink2); }
+  .t-small { font-size: 12.5px; fill: var(--mute); }
+  .t-tick { font-size: 12.5px; fill: var(--mute); font-variant-numeric: tabular-nums; }
+  .t-strong { font-size: 13.5px; font-weight: 600; }
+  .t-kpi { font-size: 38px; font-weight: 650; }
+  .card { fill: var(--bg); stroke: var(--border); stroke-width: 1; }
+  .plane { fill: var(--plane); }
+  .grid { stroke: var(--grid); stroke-width: 1; }
+  .axis { stroke: var(--axis); stroke-width: 1; }
+  .lead { stroke: var(--mute); stroke-width: 1; fill: none; }
+  .dot { fill: var(--dot); }
+  .ring { stroke: var(--bg); stroke-width: 2; }
+  .f-s1 { fill: var(--s1); } .st-s1 { stroke: var(--s1); }
+  .f-s2 { fill: var(--s2); } .st-s2 { stroke: var(--s2); }
+  .f-s3 { fill: var(--s3); } .st-s3 { stroke: var(--s3); }
+  .f-mute { fill: var(--mute); } .st-mute { stroke: var(--mute); }
+  .f-ink { fill: var(--ink); } .st-ink { stroke: var(--ink); }
+  .f-soft { fill: var(--soft); }
+  .line { fill: none; stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; }
+  .box { fill: var(--bg); stroke: var(--axis); stroke-width: 1; }
+  .box-hi { fill: var(--soft); stroke: var(--s1); stroke-width: 1.25; }
+  .arrow { stroke: var(--mute); stroke-width: 1.5; fill: none; }
+  .halo { paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+</style>
+<rect class="card" x="0.5" y="0.5" width="1199" height="599" rx="14"/>
+<text x="40.0" y="52.0" class="t-title" text-anchor="start">Search beats random sampling inside the table, but not on unseen manuals</text>
+<text x="40.0" y="80.0" class="t-sub" text-anchor="start">Left: replay on the complete lookup table, 50 seeds per method. Right: the same methods validated by leaving one manual out.</text>
+<text x="40.0" y="124.0" class="t-h" text-anchor="start">Inside the benchmark table</text>
+<path class="grid" d="M96,504.0 H560"/>
+<text x="86.0" y="508.0" class="t-tick" text-anchor="end">0.00</text>
+<path class="grid" d="M96,405.7 H560"/>
+<text x="86.0" y="409.7" class="t-tick" text-anchor="end">0.01</text>
+<path class="grid" d="M96,307.3 H560"/>
+<text x="86.0" y="311.3" class="t-tick" text-anchor="end">0.02</text>
+<path class="grid" d="M96,209.0 H560"/>
+<text x="86.0" y="213.0" class="t-tick" text-anchor="end">0.03</text>
+<text x="96.0" y="524.0" class="t-tick" text-anchor="middle">25</text>
+<text x="188.8" y="524.0" class="t-tick" text-anchor="middle">50</text>
+<text x="374.4" y="524.0" class="t-tick" text-anchor="middle">100</text>
+<text x="560.0" y="524.0" class="t-tick" text-anchor="middle">150</text>
+<path class="axis" d="M96,504 H560"/>
+<text x="328.0" y="550.0" class="t-lab" text-anchor="middle">Evaluation budget (configurations tried)</text>
+<text x="34.0" y="327.0" class="t-lab" text-anchor="middle" transform="rotate(-90 34 327.0)">Median F1 gap to the best of 960</text>
+<path d="M96.0,222.8 L188.8,361.4 L374.4,452.9 L560.0,452.9" class="line st-s1"/>
+<circle cx="96.0" cy="222.8" r="4.5" class="f-s1 ring"><title>Genetic algorithm, budget 25: median gap 0.0286</title></circle>
+<circle cx="188.8" cy="361.4" r="4.5" class="f-s1 ring"><title>Genetic algorithm, budget 50: median gap 0.0145</title></circle>
+<circle cx="374.4" cy="452.9" r="4.5" class="f-s1 ring"><title>Genetic algorithm, budget 100: median gap 0.0052</title></circle>
+<circle cx="560.0" cy="452.9" r="4.5" class="f-s1 ring"><title>Genetic algorithm, budget 150: median gap 0.0052</title></circle>
+<path d="M96.0,323.1 L188.8,417.5 L374.4,504.0 L560.0,504.0" class="line st-s2"/>
+<circle cx="96.0" cy="323.1" r="4.5" class="f-s2 ring"><title>TPE, budget 25: median gap 0.0184</title></circle>
+<circle cx="188.8" cy="417.5" r="4.5" class="f-s2 ring"><title>TPE, budget 50: median gap 0.0088</title></circle>
+<circle cx="374.4" cy="504.0" r="4.5" class="f-s2 ring"><title>TPE, budget 100: median gap 0.0000</title></circle>
+<circle cx="560.0" cy="504.0" r="4.5" class="f-s2 ring"><title>TPE, budget 150: median gap 0.0000</title></circle>
+<path d="M96.0,332.9 L188.8,382.1 L374.4,504.0 L560.0,504.0" class="line st-s3"/>
+<circle cx="96.0" cy="332.9" r="4.5" class="f-s3 ring"><title>Coordinate ascent, budget 25: median gap 0.0174</title></circle>
+<circle cx="188.8" cy="382.1" r="4.5" class="f-s3 ring"><title>Coordinate ascent, budget 50: median gap 0.0124</title></circle>
+<circle cx="374.4" cy="504.0" r="4.5" class="f-s3 ring"><title>Coordinate ascent, budget 100: median gap 0.0000</title></circle>
+<circle cx="560.0" cy="504.0" r="4.5" class="f-s3 ring"><title>Coordinate ascent, budget 150: median gap 0.0000</title></circle>
+<path d="M96.0,172.6 L188.8,242.4 L374.4,325.0 L560.0,340.8" class="line st-mute"/>
+<circle cx="96.0" cy="172.6" r="4.5" class="f-mute ring"><title>Random search, budget 25: median gap 0.0337</title></circle>
+<circle cx="188.8" cy="242.4" r="4.5" class="f-mute ring"><title>Random search, budget 50: median gap 0.0266</title></circle>
+<circle cx="374.4" cy="325.0" r="4.5" class="f-mute ring"><title>Random search, budget 100: median gap 0.0182</title></circle>
+<circle cx="560.0" cy="340.8" r="4.5" class="f-mute ring"><title>Random search, budget 150: median gap 0.0166</title></circle>
+<circle cx="578" cy="336.8" r="4" class="f-mute"/>
+<text x="588.0" y="340.8" class="t-lab" text-anchor="start">Random search</text>
+<circle cx="578" cy="448.9" r="4" class="f-s1"/>
+<text x="588.0" y="452.9" class="t-lab" text-anchor="start">Genetic algorithm</text>
+<circle cx="578" cy="500.0" r="4" class="f-s3"/>
+<text x="588.0" y="504.0" class="t-lab" text-anchor="start">Coordinate ascent</text>
+<circle cx="578" cy="517.0" r="4" class="f-s2"/>
+<text x="588.0" y="521.0" class="t-lab" text-anchor="start">TPE</text>
+<text x="720.0" y="124.0" class="t-h" text-anchor="start">On held-out manuals (20 manuals)</text>
+<path class="grid" d="M910.0,160 V390"/>
+<text x="910.0" y="410.0" class="t-tick" text-anchor="middle">-0.06</text>
+<path class="grid" d="M967.5,160 V390"/>
+<text x="967.5" y="410.0" class="t-tick" text-anchor="middle">-0.03</text>
+<path class="axis" d="M1025.0,160 V390"/>
+<text x="1025.0" y="410.0" class="t-tick" text-anchor="middle">0</text>
+<path class="grid" d="M1082.5,160 V390"/>
+<text x="1082.5" y="410.0" class="t-tick" text-anchor="middle">+0.03</text>
+<path class="grid" d="M1140.0,160 V390"/>
+<text x="1140.0" y="410.0" class="t-tick" text-anchor="middle">+0.06</text>
+<text x="1025.0" y="436.0" class="t-lab" text-anchor="middle">Held-out F1 minus random search, 95% CI</text>
+<text x="720.0" y="205.0" class="t-lab" text-anchor="start">Genetic algorithm</text>
+<text x="720.0" y="222.0" class="t-small" text-anchor="start">held-out F1 0.335</text>
+<path class="st-s1" style="stroke-width:2;stroke-linecap:round" d="M976.1,205.0 H1067.7"/>
+<circle cx="1023.5" cy="205.0" r="5.5" class="f-s1 ring"><title>Genetic algorithm: -0.0008 [-0.0255, +0.0223]</title></circle>
+<text x="720.0" y="275.0" class="t-lab" text-anchor="start">TPE</text>
+<text x="720.0" y="292.0" class="t-small" text-anchor="start">held-out F1 0.324</text>
+<path class="st-s2" style="stroke-width:2;stroke-linecap:round" d="M927.6,275.0 H1073.7"/>
+<circle cx="1003.1" cy="275.0" r="5.5" class="f-s2 ring"><title>TPE: -0.0114 [-0.0508, +0.0254]</title></circle>
+<text x="720.0" y="345.0" class="t-lab" text-anchor="start">Coordinate ascent</text>
+<text x="720.0" y="362.0" class="t-small" text-anchor="start">held-out F1 0.335</text>
+<path class="st-s3" style="stroke-width:2;stroke-linecap:round" d="M953.9,345.0 H1093.0"/>
+<circle cx="1025.0" cy="345.0" r="5.5" class="f-s3 ring"><title>Coordinate ascent: -0.0000 [-0.0371, +0.0355]</title></circle>
+<text x="720.0" y="476.0" class="t-lab" text-anchor="start">Random search reaches F1 0.335 on the held-out manual.</text>
+<text x="720.0" y="496.0" class="t-lab" text-anchor="start">Every interval includes zero.</text>
+<text x="40.0" y="582.0" class="t-small" text-anchor="start">Sources: results/tables/optimizers_conditional_on_table.csv, results/report.json (lomo_all). The coevolutionary variant is in the same tables.</text>
+</svg>

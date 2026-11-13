@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>RAG Benchmark</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --page: #f5f5f7; --card: #ffffff; --ink: #1d1d1f; --ink-2: #6e6e73; --line: #d2d2d7; --track: #e8e8ed;
+  --accent: #2a78d6; --dot: #b4b4bb; --bar: rgba(245, 245, 247, .72);
+  --good: #0ca30c; --warn: #fab219; --bad: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #000000; --card: #1c1c1e; --ink: #f5f5f7; --ink-2: #a1a1a6; --line: #38383a; --track: #2c2c2e;
+    --accent: #3987e5; --dot: #636366; --bar: rgba(0, 0, 0, .68);
+  }
+}
+@media (prefers-contrast: more) { :root { --ink-2: var(--ink); --line: var(--ink-2); } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased;
+}
+header {
+  position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line); background: var(--bar);
+  -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+}
+@media (prefers-reduced-transparency: reduce) { header { background: var(--page); -webkit-backdrop-filter: none; backdrop-filter: none; } }
+.bar, main { max-width: 1120px; margin: 0 auto; padding-inline: 16px; }
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 48px; }
+.bar b { font-weight: 600; }
+.quiet { color: var(--ink-2); font-size: 13px; }
+main { padding-block: 40px 64px; }
+h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.1; letter-spacing: -.02em; font-weight: 700; margin: 0 0 8px; max-width: 22ch; }
+h2 { font-size: 19px; font-weight: 600; letter-spacing: -.01em; margin: 0; }
+.lead { font-size: 17px; color: var(--ink-2); margin: 0 0 32px; max-width: 62ch; }
+.finish[hidden] { display: none; }
+.finish { background: var(--card); border-radius: 14px; padding: 14px 16px; margin: -12px 0 16px; display: grid; gap: 2px; }
+.finish strong { font-size: 22px; font-weight: 600; letter-spacing: -.01em; }
+.demo { background: var(--warn); color: #1d1d1f; font-weight: 600; font-size: 13px; padding: 6px 12px; border-radius: 8px; margin-bottom: 20px; display: inline-block; }
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(12, minmax(0, 1fr)); }
+.card { background: var(--card); border-radius: 18px; padding: 20px; min-width: 0; grid-column: span 12; }
+.s7 { grid-column: span 7; } .s5 { grid-column: span 5; } .s6 { grid-column: span 6; }
+@media (max-width: 860px) { .s7, .s5, .s6 { grid-column: span 12; } }
+.card > p.sub { margin: 2px 0 14px; color: var(--ink-2); font-size: 13px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 0 0 16px; }
+.tile { background: var(--card); border-radius: 14px; padding: 14px 16px; margin: 0; }
+.tile dt { font-size: 13px; color: var(--ink-2); }
+.tile dd { margin: 2px 0 0; font-size: 22px; font-weight: 600; letter-spacing: -.01em; }
+.tile small { display: block; font-size: 13px; font-weight: 400; color: var(--ink-2); letter-spacing: 0; }
+ol, ul { list-style: none; margin: 0; padding: 0; }
+.stage { display: grid; grid-template-columns: 22px 1fr auto; gap: 2px 10px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); }
+.stage:first-child { border-top: 0; }
+.stage .who { grid-column: 3; color: var(--ink-2); font-size: 13px; text-align: right; white-space: nowrap; }
+.stage progress { grid-column: 2 / 4; }
+.stage.next .name { font-weight: 600; }
+.stage.todo .name { color: var(--ink-2); }
+.mark { width: 16px; height: 16px; align-self: center; }
+progress { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border: 0; border-radius: 2px; background: var(--track); display: block; margin-top: 6px; overflow: hidden; }
+progress::-webkit-progress-bar { background: var(--track); border-radius: 2px; }
+progress::-webkit-progress-value { background: var(--accent); border-radius: 2px; }
+progress::-moz-progress-bar { background: var(--accent); border-radius: 2px; }
+.task { display: grid; grid-template-columns: 22px 1fr; gap: 0 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+.task:first-child { border-top: 0; }
+.task span.d { color: var(--ink-2); font-size: 13px; display: block; overflow-wrap: anywhere; }
+.chart { position: relative; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { fill: var(--ink-2); font-size: 11px; }
+.grid-line { stroke: var(--track); stroke-width: 1; }
+.tip {
+  position: absolute; pointer-events: none; display: none; z-index: 3; background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; font-size: 13px; max-width: 250px; box-shadow: 0 4px 16px rgba(0,0,0,.14);
+}
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--ink-2); margin: 0 0 8px; }
+.legend i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.empty { color: var(--ink-2); padding: 28px 0; text-align: center; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th { text-align: left; font-weight: 500; color: var(--ink-2); padding: 6px 12px 6px 0; white-space: nowrap; }
+td { padding: 7px 12px 7px 0; border-top: 1px solid var(--line); white-space: nowrap; }
+td.n, th.n { text-align: right; padding-right: 0; padding-left: 12px; }
+pre { margin: 0; font: 12px/1.5 ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: var(--ink-2); white-space: pre-wrap; overflow-wrap: anywhere; }
+details summary { cursor: pointer; font-weight: 600; font-size: 15px; min-height: 28px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+</style>
+</head>
+<body>
+<header><div class="bar"><b>RAG Benchmark</b><span class="quiet" id="fresh" aria-live="polite">Wird geladen</span></div></header>
+<main>
+  <div id="demo"></div>
+  <h1 id="headline">Status wird gelesen</h1>
+  <p class="lead" id="lead"></p>
+  <div class="finish" id="finish" hidden><span class="quiet" id="finish-label">Fertig voraussichtlich</span><strong id="finish-when"></strong><span class="quiet" id="finish-left"></span></div>
+  <dl class="tiles" id="tiles"></dl>
+  <div class="grid">
+    <section class="card s7" aria-labelledby="h-steps"><h2 id="h-steps">Ablauf</h2><p class="sub" id="steps-sub"></p><ol id="stages"></ol></section>
+    <div class="s5" style="display:grid;gap:16px;align-content:start;min-width:0">
+      <section class="card" aria-labelledby="h-human"><h2 id="h-human">Manuelle Schritte</h2><p class="sub">LLM-Agenten übernehmen sie; im Paper als KI-Arbeit gekennzeichnet.</p><ul id="human"></ul></section>
+      <section class="card" aria-labelledby="h-gpu"><h2 id="h-gpu">GPU-Auslastung</h2><p class="sub" id="gpu-sub"></p><div class="chart" id="gpu-chart"></div></section>
+    </div>
+    <section class="card" aria-labelledby="h-front">
+      <h2 id="h-front">Qualität und Wartezeit</h2><p class="sub" id="front-sub"></p>
+      <div class="legend" id="legend" hidden><span><i style="background:var(--accent)"></i>Beste Kompromisse (Pareto-Front)</span><span><i style="background:var(--dot)"></i>Übrige Konfigurationen</span></div>
+      <div class="chart" id="front-chart"></div>
+      <div id="front-table"></div>
+    </section>
+    <section class="card s6" aria-labelledby="h-models"><h2 id="h-models">Modelle</h2><p class="sub">Bester bisher gemessener Wert je Modell.</p><div id="models"></div></section>
+    <section class="card s6" aria-labelledby="h-results"><h2 id="h-results">Ergebnis zur Suche</h2><p class="sub">Hilft die Suche auf Handbüchern, die sie nie gesehen hat?</p><div id="results"></div></section>
+    <section class="card"><details><summary>Protokoll</summary><pre id="log"></pre></details></section>
+  </div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
+const num = (x, d = 0) => x == null ? "–" : Number(x).toLocaleString("de-DE", { minimumFractionDigits: d, maximumFractionDigits: d });
+const dur = s => s == null ? "–" : s < 90 ? `${Math.round(s)} s` : s < 5400 ? `${Math.round(s / 60)} min` : s < 172800 ? `${num(s / 3600, 1)} h` : `${num(s / 86400, 1)} Tage`;
+const secs = s => s == null ? "–" : s < 10 ? `${num(s, 2)} s` : `${num(s, 1)} s`;
+const icon = {
+  done: '<svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="var(--good)"/><path d="M4.5 8.2l2.4 2.4 4.6-5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  next: '<svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="8" cy="8" r="3" fill="var(--accent)"/></svg>',
+  todo: '<svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="var(--line)" stroke-width="2"/></svg>',
+};
+const WHO = { gpu: "RTX A6000", llm: "LLM-Agent", auto: "automatisch", setup: "Einrichtung" };
+const RUN_TO_STAGE = { "calibration-export": "generate-dev", "judge-calibration": "judge-dev", "judge-noise": "generate-noise", controls: "generate-noise", optimize: "freeze", baselines: "generate-test", "latency-seq": "latency", "latency-cpu": "latency", "latency-load": "latency", "rating-export-test": "analyze" };
+
+function headline(s) {
+  const open = s.stages.filter(x => !x.complete);
+  const next = open[0];
+  if (s.paused) return [`Pausiert: ${s.paused.reason || "absichtlich"}.`, `Seit ${s.paused.since}. Die GPU ist frei, und alles Fertige ist gespeichert. ${s.paused.reason === "von dir angehalten" ? "Sag im Chat „trainiere weiter“, dann läuft es genau hier weiter." : "Danach läuft es von selbst genau hier weiter."}`];
+  if (s.running[0] === "setup") return ["Modelle werden geladen.", "Das ist nur die Vorbereitung. Berechnungen starten erst nach deinem Go."];
+  if (s.running.length) {
+    const key = RUN_TO_STAGE[s.running[0]] || s.running[0];
+    const st = s.stages.find(x => x.key === key);
+    return [`Die GPU arbeitet: ${st ? st.label : s.running[0]}.`, "Du musst nichts tun. Diese Seite aktualisiert sich selbst."];
+  }
+  if (!open.length) return ["Alles ist fertig.", "Die Auswertung liegt in results/report.json, die Abbildungen liegen in results/."];
+  if (!s.go) return ["Alles wartet auf dein Go.", s.models_missing.length ? `Es läuft keine Berechnung. Für den Start fehlen noch ${s.models_missing.length} Modelle, sie werden nach dem Go geladen.` : "Es läuft keine Berechnung. Sag im Chat „Go“, dann startet der Lauf auf der RTX A6000."];
+  if (next.who === "llm") return [`LLM-Agent ist dran: ${next.label}.`, "Die Berechnung wartet, bis diese Bewertungen vorliegen."];
+  return [`Pausiert vor: ${next.label}.`, "Gerade läuft kein Prozess. Der Lauf setzt beim erneuten Start genau hier fort."];
+}
+
+const LONG = new Intl.DateTimeFormat("de-DE", { weekday: "long", day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" });
+function renderFinish(s) {
+  const allDone = s.stages.every(x => x.complete);
+  $("finish").hidden = s.remaining_s == null || allDone;
+  if ($("finish").hidden) return;
+  const rounded = Math.ceil(s.finish_ts / 300) * 300;  // A forecast has no minute-level precision.
+  $("finish-when").textContent = `${LONG.format(new Date(rounded * 1000))} Uhr`;
+  $("finish-label").textContent = s.paused ? "Fertig, wenn es jetzt weiterliefe" : "Fertig voraussichtlich";
+  const d = Math.floor(s.remaining_s / 86400), h = Math.round((s.remaining_s % 86400) / 3600);
+  const left = s.remaining_s < 3600 ? `${Math.max(1, Math.round(s.remaining_s / 60))} Minuten` : `${d ? `${d} ${d === 1 ? "Tag" : "Tage"} ` : ""}${h} ${h === 1 ? "Stunde" : "Stunden"}`;
+  $("finish-left").textContent = `Noch rund ${left} Rechenzeit, Schätzung aus den bisherigen Messwerten.`;
+}
+
+function renderStages(s) {
+  const list = $("stages"); list.replaceChildren();
+  const nextIdx = s.stages.findIndex(x => !x.complete);
+  s.stages.forEach((x, i) => {
+    const state = x.complete ? "done" : i === nextIdx ? "next" : "todo";
+    const li = el("li", `stage ${state}`);
+    const mark = el("span"); mark.innerHTML = icon[state];
+    const label = { done: "erledigt", next: "als Nächstes", todo: "offen" }[state];
+    mark.append(el("span", "sr", label));
+    const showCount = x.total > 1 && !x.complete;
+    const who = x.eta_s != null ? `noch ${dur(Math.max(x.eta_s, 1))}` : showCount ? `${num(x.done)} von ${num(x.total)}` : WHO[x.who];
+    li.append(mark, el("span", "name", x.label), el("span", "who", who));
+    if (state === "next" && x.total > 1) {
+      const p = el("progress"); p.max = x.total; p.value = Math.min(x.done, x.total); p.setAttribute("aria-label", `${x.label}: ${num(x.done)} von ${num(x.total)}`);
+      li.append(p);
+    }
+    list.append(li);
+  });
+  const done = s.stages.filter(x => x.complete).length;
+  $("steps-sub").textContent = `${done} von ${s.stages.length} Schritten erledigt` + (s.remaining_s != null ? "." : ". Die Restzeit erscheint mit den ersten Messwerten.");
+}
+
+function renderTiles(s) {
+  const g = s.gpu;
+  const tiles = [
+    ["Antworten", num(s.answers), s.avg_gen_s != null ? `${secs(s.avg_gen_s)} pro Antwort` : "noch keine"],
+    ["Bewertungen", num(s.judgments), s.judge_failures ? `${num(s.judge_failures)} fehlgeschlagen` : s.judge_decided ? s.primary : "Judge noch nicht gewählt"],
+    ["GPU", g ? `${num(g.util)} %` : "–", g ? `${g.name.replace("NVIDIA ", "")}, ${num(g.temp)} °C` : "nicht erreichbar"],
+    ["Grafikspeicher", g ? `${num(g.mem_used_gb, 1)} GB` : "–", g ? `von ${num(g.mem_total_gb, 0)} GB` : ""],
+    ["Geladenes Modell", s.loaded[0] ? s.loaded[0].split(":")[0] : "keins", s.ollama_up ? (s.loaded[0] ? s.loaded[0].split(":")[1] : "Ollama bereit") : "Ollama aus"],
+  ];
+  $("tiles").replaceChildren(...tiles.map(([k, v, h]) => {
+    const d = el("div", "tile"); const dd = el("dd", "", v); dd.append(el("small", "", h)); d.append(el("dt", "", k), dd); return d;
+  }));
+}
+
+function renderHuman(s) {
+  $("human").replaceChildren(...s.human.map(h => {
+    const li = el("li", "task"); const m = el("span"); m.innerHTML = h.done ? icon.done : icon.todo; m.append(el("span", "sr", h.done ? "erledigt" : "offen"));
+    const t = el("span"); t.append(el("span", "", h.label), el("span", "d", h.detail)); li.append(m, t); return li;
+  }));
+}
+
+const NS = "http://www.w3.org/2000/svg";
+const svgEl = (tag, attrs, text) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text !== undefined) e.textContent = text; return e; };
+
+function tooltip(box, x, y, build) {
+  let t = box.querySelector(".tip"); if (!t) { t = el("div", "tip"); box.append(t); }
+  t.replaceChildren(...build()); t.style.display = "block";
+  const w = t.offsetWidth, max = box.clientWidth - w;
+  t.style.left = `${Math.max(0, Math.min(x + 12, max))}px`; t.style.top = `${Math.max(0, y - t.offsetHeight - 10)}px`;
+}
+const hideTip = box => { const t = box.querySelector(".tip"); if (t) t.style.display = "none"; };
+
+function renderFront(s) {
+  const box = $("front-chart"), rows = s.table;
+  $("legend").hidden = !rows.length;
+  if (!rows.length) {
+    box.replaceChildren(el("p", "empty", "Erscheint, sobald die ersten Antworten bewertet sind."));
+    $("front-table").replaceChildren();
+    $("front-sub").textContent = "Jeder Punkt ist eine Konfiguration: oben links ist gut und schnell.";
+    return;
+  }
+  const front = rows.filter(r => r.front).sort((a, b) => a.latency_s - b.latency_s);
+  const best = front[front.length - 1], fast = front[0];
+  $("front-sub").textContent = `${num(rows.length)} Konfigurationen bewertet. Beste Qualität ${num(best.f1, 3)} bei ${secs(best.latency_s)}, schnellste Option auf der Front ${secs(fast.latency_s)} bei ${num(fast.f1, 3)}.`;
+  const W = Math.max(box.clientWidth, 280), H = Math.round(Math.min(360, Math.max(240, W * .42))), L = 44, R = 12, T = 10, B = 40;
+  const lat = rows.map(r => r.latency_s).filter(v => v > 0);
+  const lo = Math.floor(Math.log10(Math.min(...lat))), hi = Math.ceil(Math.log10(Math.max(...lat)));
+  const ymax = Math.min(1, Math.ceil(Math.max(...rows.map(r => r.f1)) * 10 + .5) / 10);
+  const X = v => L + (Math.log10(v) - lo) / Math.max(hi - lo, 1) * (W - L - R), Y = v => T + (1 - v / ymax) * (H - T - B);
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `Streudiagramm von Faktentreue gegen Wartezeit. ${front.length} Konfigurationen bilden die Pareto-Front, von ${secs(fast.latency_s)} bei ${num(fast.f1, 3)} bis ${secs(best.latency_s)} bei ${num(best.f1, 3)}. Dieselben Werte stehen in der Tabelle darunter.` });
+  for (let v = 0; v <= ymax + 1e-9; v += .1) { svg.append(svgEl("line", { class: "grid-line", x1: L, x2: W - R, y1: Y(v), y2: Y(v) }), svgEl("text", { x: L - 8, y: Y(v) + 4, "text-anchor": "end" }, num(v, 1))); }
+  for (let e = lo; e <= hi; e++) { svg.append(svgEl("line", { class: "grid-line", x1: X(10 ** e), x2: X(10 ** e), y1: T, y2: H - B }), svgEl("text", { x: X(10 ** e), y: H - B + 16, "text-anchor": "middle" }, `${num(10 ** e, e < 0 ? -e : 0)} s`)); }
+  svg.append(svgEl("text", { x: (W + L) / 2, y: H - 4, "text-anchor": "middle" }, "Mittlere Wartezeit pro Antwort, logarithmisch"));
+  svg.append(svgEl("text", { x: 12, y: H / 2 - B / 2, transform: `rotate(-90 12 ${H / 2 - B / 2})`, "text-anchor": "middle" }, "Faktentreue (F1)"));
+  rows.filter(r => !r.front).forEach(r => svg.append(svgEl("circle", { cx: X(r.latency_s), cy: Y(r.f1), r: 3, fill: "var(--dot)", "fill-opacity": .55 })));
+  let d = ""; front.forEach((r, i) => { d += i ? `H${X(r.latency_s)}V${Y(r.f1)}` : `M${X(r.latency_s)} ${Y(r.f1)}`; });
+  svg.append(svgEl("path", { d, fill: "none", stroke: "var(--accent)", "stroke-width": 2 }));
+  front.forEach(r => svg.append(svgEl("circle", { cx: X(r.latency_s), cy: Y(r.f1), r: 4.5, fill: "var(--accent)", stroke: "var(--card)", "stroke-width": 2 })));
+  const pts = rows.map(r => ({ r, x: X(r.latency_s), y: Y(r.f1) }));
+  svg.addEventListener("mousemove", e => {
+    const b = svg.getBoundingClientRect(), k = W / b.width, mx = (e.clientX - b.left) * k, my = (e.clientY - b.top) * k;
+    let best = null, bd = 900;
+    for (const p of pts) { const dd = (p.x - mx) ** 2 + (p.y - my) ** 2; if (dd < bd) { bd = dd; best = p; } }
+    if (!best) return hideTip(box);
+    const c = best.r;
+    tooltip(box, best.x / k, best.y / k, () => [el("strong", "", c.model), el("div", "", `F1 ${num(c.f1, 3)}, ${secs(c.latency_s)}`), el("div", "quiet", `Chunk ${c.chunk_size}, Überlappung ${c.chunk_overlap} %, Top-k ${c.top_k}, Temperatur ${num(c.temperature, 1)}`)]);
+  });
+  svg.addEventListener("mouseleave", () => hideTip(box));
+  box.replaceChildren(svg);
+  const wrap = el("div", "scroll"), t = el("table");
+  t.innerHTML = '<caption class="sr">Konfigurationen auf der Pareto-Front, von schnell nach gut</caption><thead><tr><th scope="col">Modell</th><th class="n" scope="col">Chunk</th><th class="n" scope="col">Überl.</th><th class="n" scope="col">Top-k</th><th class="n" scope="col">Temp.</th><th class="n" scope="col">F1</th><th class="n" scope="col">Wartezeit</th></tr></thead>';
+  const tb = el("tbody");
+  front.forEach(r => { const tr = el("tr"); [[r.model], [r.chunk_size, 1], [`${r.chunk_overlap} %`, 1], [r.top_k, 1], [num(r.temperature, 1), 1], [num(r.f1, 3), 1], [secs(r.latency_s), 1]].forEach(([v, n]) => tr.append(el("td", n ? "n" : "", v))); tb.append(tr); });
+  t.append(tb); wrap.append(t);
+  const det = el("details"); det.style.marginTop = "12px"; const sum = el("summary", "", "Pareto-Front als Tabelle"); det.append(sum, wrap);
+  const old = $("front-table").querySelector("details"); if (old && old.open) det.open = true;
+  $("front-table").replaceChildren(det);
+}
+
+function renderGpu(s) {
+  const box = $("gpu-chart"), h = s.gpu_history;
+  if (!s.gpu) { $("gpu-sub").textContent = ""; box.replaceChildren(el("p", "empty", "nvidia-smi antwortet nicht. Läuft der Grafiktreiber?")); return; }
+  $("gpu-sub").textContent = `Letzte 20 Minuten. Leistung gerade ${num(s.gpu.power)} W.`;
+  if (h.length < 2) { box.replaceChildren(el("p", "empty", "Die Kurve erscheint nach den nächsten Messwerten.")); return; }
+  const W = Math.max(box.clientWidth, 240), H = 130, L = 36, R = 6, T = 6, B = 8, t0 = h[0].t, t1 = h[h.length - 1].t;
+  const X = t => L + (t - t0) / Math.max(t1 - t0, 1) * (W - L - R), Y = v => T + (1 - v / 100) * (H - T - B);
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `GPU-Auslastung, zuletzt ${num(h[h.length - 1].util)} Prozent` });
+  [0, 50, 100].forEach(v => svg.append(svgEl("line", { class: "grid-line", x1: L, x2: W - R, y1: Y(v), y2: Y(v) }), svgEl("text", { x: L - 6, y: Y(v) + 4, "text-anchor": "end" }, `${v} %`)));
+  svg.append(svgEl("path", { d: h.map((p, i) => `${i ? "L" : "M"}${X(p.t).toFixed(1)} ${Y(p.util).toFixed(1)}`).join(""), fill: "none", stroke: "var(--accent)", "stroke-width": 2, "stroke-linejoin": "round" }));
+  svg.addEventListener("mousemove", e => {
+    const b = svg.getBoundingClientRect(), k = W / b.width, mx = (e.clientX - b.left) * k;
+    const p = h.reduce((a, c) => Math.abs(X(c.t) - mx) < Math.abs(X(a.t) - mx) ? c : a);
+    svg.querySelector(".cross")?.remove();
+    svg.append(svgEl("line", { class: "cross", x1: X(p.t), x2: X(p.t), y1: T, y2: H - B, stroke: "var(--ink-2)", "stroke-width": 1 }));
+    tooltip(box, X(p.t) / k, Y(p.util) / k, () => [el("strong", "", `${num(p.util)} %`), el("div", "quiet", new Date(p.t * 1000).toLocaleTimeString("de-DE"))]);
+  });
+  svg.addEventListener("mouseleave", () => { svg.querySelector(".cross")?.remove(); hideTip(box); });
+  box.replaceChildren(svg);
+}
+
+function table(head, rows) {
+  const wrap = el("div", "scroll"), t = el("table"), tr = el("tr");
+  head.forEach(([h, n]) => { const th = el("th", n ? "n" : "", h); th.scope = "col"; tr.append(th); });
+  const th = el("thead"); th.append(tr); t.append(th);
+  const tb = el("tbody");
+  rows.forEach(r => { const row = el("tr"); r.forEach((v, i) => row.append(el("td", head[i][1] ? "n" : "", v))); tb.append(row); });
+  t.append(tb); wrap.append(t); return wrap;
+}
+
+function renderModels(s) {
+  if (!s.table.length) return $("models").replaceChildren(el("p", "empty", "Noch keine bewerteten Antworten."));
+  const by = {};
+  s.table.forEach(r => { const m = by[r.model] ||= { n: 0, best: -1, lat: 0 }; m.n++; if (r.f1 > m.best) { m.best = r.f1; m.lat = r.latency_s; } });
+  const rows = Object.entries(by).sort((a, b) => b[1].best - a[1].best).map(([k, v]) => [k, num(v.n), num(v.best, 3), secs(v.lat)]);
+  $("models").replaceChildren(table([["Modell"], ["Konfig.", 1], ["Bester F1", 1], ["Wartezeit", 1]], rows));
+}
+
+function renderResults(s) {
+  const lomo = s.report && s.report.lomo_all;
+  if (!lomo) return $("results").replaceChildren(el("p", "empty", "Erscheint nach der Kreuzvalidierung über die Handbücher."));
+  const names = { random: "Zufallssuche", ga: "Genetischer Algorithmus", tpe: "Bayes (TPE)", coordinate_ascent: "Koordinatenanstieg", coevolution: "Koevolution" };
+  $("results").replaceChildren(table([["Verfahren"], ["F1 unbekannt", 1], ["Gegen Zufall", 1], ["95-%-Bereich", 1], ["Besser?", 1]],
+    lomo.map(r => [names[r.method] || r.method, num(r.held_f1, 3), r.method === "random" ? "–" : `${r.diff_vs_random >= 0 ? "+" : ""}${num(r.diff_vs_random, 3)}`, r.method === "random" ? "–" : `${num(r.ci_lo, 3)} bis ${num(r.ci_hi, 3)}`, r.method === "random" ? "–" : r.beats_random ? "Ja" : "Nicht belegt"])));
+}
+
+let last = 0, latest = null;
+addEventListener("resize", () => { if (latest) { renderFront(latest); renderGpu(latest); } });
+async function tick() {
+  try {
+    const r = await fetch("/api/state", { cache: "no-store" });
+    const s = await r.json();
+    if (s.error) throw new Error(s.error);
+    last = Date.now(); latest = s;
+    $("demo").replaceChildren(...(s.demo ? [el("div", "demo", "Demodaten: Diese Zahlen sind künstlich, kein echtes Ergebnis.")] : []));
+    const [h, l] = headline(s);
+    $("headline").textContent = h; $("lead").textContent = l;
+    document.title = `${h} · RAG Benchmark`;
+    renderFinish(s); renderTiles(s); renderStages(s); renderHuman(s); renderFront(s); renderGpu(s); renderModels(s); renderResults(s);
+    $("log").textContent = s.log.length ? s.log.join("\n") : "Noch kein Lauf protokolliert.";
+    $("fresh").textContent = "Aktuell";
+  } catch (e) {
+    $("fresh").textContent = "Keine Verbindung";
+    if (!last) { $("headline").textContent = "Status nicht lesbar."; $("lead").textContent = `Starte den Dienst mit „python -m ragbench.dashboard“. Meldung: ${e.message}`; }
+  }
+}
+tick(); setInterval(tick, 5000);
+setInterval(() => { if (last) { const a = Math.round((Date.now() - last) / 1000); if (a > 12) $("fresh").textContent = `Letzte Daten vor ${a} s`; } }, 3000);
+</script>
+</body>
+</html>

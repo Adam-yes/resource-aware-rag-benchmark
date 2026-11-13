@@ -1,0 +1,41 @@
+user_input,comment
+"blown fuse on the core one, how do I swap it","SAFETY: electrical work, disconnect mains before replacing the fuse"
+can I wipe the clear panels on the core one with alcohol?,SAFETY: damage to the machine from the wrong cleaning agent
+"printing PLA on the CORE One, does the door need to stay open?",Setting: chamber ventilation for low-temperature materials
+core one loadcell calibration keeps failing,Troubleshooting: calibration
+core one room temperature range and humidity limit,Specification: operating environment
+can I put a heater inside the prusa enclosure to keep it warmer?,SAFETY: overheating limit of the enclosure
+"enclosure in a hot room, is PLA still ok?",Material limit: PLA in an enclosure
+"HT90 hepa filter, how often and how do I get to it",Maintenance step: filter interval and access
+how cool does the nozzle need to be before unscrewing it on the HT90?,"SAFETY: hot nozzle, burn risk during nozzle change"
+which nozzle on the HT90 for carbon fiber filament?,Material limit: nozzle choice for abrasive filaments
+x axis homing fails on my mini+,Troubleshooting: homing
+"mini+ has no filament sensor and ran out, strand is stuck in the ptfe tube",Troubleshooting: filament stuck after runout
+do I have to redo live Z every time I swap sheets on the mini?,Setting: sheet profiles
+xl toolheads not picking up or parking right,Troubleshooting: toolchanger
+do the linear rails on the XL need grease?,Maintenance step: linear rails
+is it ok to unplug a toolhead cable on the XL while it's on?,"SAFETY: electrical work, parts must not be disconnected under power"
+should I open the gearbox on the mk4s to clean the gear?,SAFETY: damage to the extruder gearbox
+"PETG on smooth sheet MK4S, anything I need to put on it?",Material limit: PETG and sheet surface
+how do I get the hotend out of the MK4?,Maintenance step: quick-swap hotend
+mesh bed leveling failing on the mk3.5,Troubleshooting: mesh bed leveling
+"changing the nozzle on a mk3.5s, what do I need to be careful about?",SAFETY: hot parts and risk of shorting the heater
+extruder clicking during first layer calibration mk3.5s,Troubleshooting: first layer
+how tight should the idler spring screws be on the MMU3?,Setting: idler screw height
+front ptfe tube length setting for mmu3 on core one,Setting: MMU3 configuration per printer
+"FINDA filament stuck error on mmu3, how do I clear the selector?",Troubleshooting: selector jam
+all five leds blinking red on mmu2s,Troubleshooting: LED error state
+does power panic kick in if I turn off the mk3s+ with the switch?,Setting: power panic behaviour
+"mk3s+ sheet losing grip, can I use acetone on it?",SAFETY: damage to the print sheet from acetone
+what do I put on the smooth rods on the MK3?,Maintenance step: bearings and rods
+how often should I reseat the connectors on the mk2.5 board?,Maintenance step: electronics interval
+"mk2s extruder jammed, how do I clean the pulley?",Troubleshooting: clogged extruder
+i3 plus 1.75 power supply input range and working temperature,Specification: power and environment
+"got resin on my skin working on the sl1s, what do I do?",SAFETY: resin skin and eye contact
+"sl1s paused mid print because resin is low, how do I refill?",Troubleshooting: resin level pause
+how do I check the UV panel on the SL1 without looking at it?,SAFETY: UV light exposure
+"where should I store resin for the SL1, is a cold room ok?",Material limit: resin storage
+"left the IPA tank in the CW1 overnight, ok to just switch it on?",SAFETY: flammable IPA vapors in the chamber
+CW1 resin preheat temperature range and max preheat time,Setting: resin preheat limits
+white residue on prints after curing in the cw1s,Troubleshooting: post-processing residue
+changing the film on the cw1s rotating platform,Maintenance step: platform film

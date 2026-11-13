@@ -1,0 +1,17 @@
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.sh text eol=lf
+*.txt text eol=lf
+*.csv text eol=lf
+*.svg text eol=lf
+*.ipynb text eol=lf
+*.png binary
+*.pdf binary
+*.gz binary
+*.xlsx binary
+# Data are hashed in results/frozen_finalists.json: keep their bytes, including line endings.
+data/** -text
+results/** -text

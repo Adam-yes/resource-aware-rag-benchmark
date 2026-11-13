@@ -1,0 +1,62 @@
+item,cfg,qid,answer
+0,gemma3n:e2b|768|25|10|0.4,1f604989ac,"Resins should be stored in their original containers and properly sealed, ideally in a dark room with a stable temperature. Do not store resins in cold places as it may lead to gelation of the resin."
+1,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,92391f60d4,"All five LEDs blinking red indicate that there is a string of filament loaded through the selector, while the selector needs to move to the side. Moving the selector would cause the filament to break, so the filament must be unloaded first. This usually occurs when the printer is turned off during printing, and the filament is not unloaded properly. To resolve, use the Allen key to press the reset button on the right side of the MMU2S unit, wait for the first LED to turn green, then select ""Unload filament"" on the LCD menu, choose the filament type, and wait for preheat. The filament will be automatically unloaded."
+2,qwen3-vl:30b-a3b-instruct|512|25|10|0.8,6757d05159,Use your smartphone’s camera to look at the UV LED panel through the phone’s screen or take a photo and inspect the photo.
+3,qwen3-vl:30b-a3b-instruct|512|0|3|0.4,6cce6434bc,re-run the Load cell calibration again. Then start the print again.
+4,gemma3:1b|768|25|3|0.0,95c730789e,No.
+5,qwen3-vl:30b-a3b-instruct|512|25|5|0.8,825e3344a3,"1. Un screw the fitting from the MMU3 selector.  
+2. Use compressed air to blow out the filament dust in the area under the FINDA sensor.  
+3. Use a 1.5mm Allen key to push the jammed pieces of the filament out of the selector.  
+4. Clean the hole with compressed air and try inserting the filament again."
+6,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,f21c4b8832,"No, I don't know."
+7,qwen3-vl:30b-a3b-instruct|768|25|3|0.8,6328e743ae,The idler spring screws on the MMU3 should be tightened so that the screw head is about 0.1 mm to 0.4 mm above the MMU3 body level.
+8,qwen3-vl:30b-a3b-instruct|768|25|3|0.8,3257b0dd8a,You can replace the FEP film by unhooking the old one and installing a new one using the spare films in the package.
+9,gemma3n:e2b|768|25|10|0.4,250c9913d2,"Power supply: 90-135 VAC, 2 A / 180-264 VAC, 1 A (50-60 Hz)
+Working temperature range: 18 °C (PLA)-38 °C, indoor use only"
+10,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,f21c4b8832,"Yes, you have to redo Live Z every time you swap sheets unless you use Steel Sheet Profiles to save calibration values."
+11,qwen3-vl:30b-a3b-instruct|512|25|10|0.4,ac001a852f,"Be careful about the hot nozzle causing burns, avoid breaking the hotend thermistor leads, and do not bend the heatbreak by applying excessive force."
+12,qwen2.5-coder:0.5b-instruct|768|25|10|0.4,7f08fb5c73,No.
+13,gemma3n:e2b|768|25|10|0.4,f21c4b8832,"No, you can pre-calibrate print sheets and store the values in the printer settings. When you start printing, you can simply switch the sheet profile without the need to recalibrate the Z offset."
+14,qwen2.5-coder:0.5b-instruct|256|0|5|0.4,5c613407f7,3D Printing Handbook - chapter
+15,qwen2.5-coder:0.5b-instruct|256|0|5|0.4,6757d05159,"To check the UV panel on the SL1 without looking at it, use your smartphone's camera - either look at the LED panel through your phone's screen or."
+16,qwen2.5-coder:0.5b-instruct|768|0|1|0.4,3257b0dd8a,I don't know.
+17,gemma3n:e2b|768|25|10|0.4,1be0c7c04a,"Never leave the tank containing isopropyl alcohol in the CW1 when the machine is off. If you left the tank with IPA in the CW1, open the CW1’s lid for several minutes before you turn the device on."
+18,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,825e3344a3,The FINDA filament stuck error on the MMU3 indicates that the selector is jammed with filament pieces under the FINDA sensor. This can be resolved by unscrewing the fitting from the MMU3 unit and using compressed air to blow out the filament dust.
+19,qwen3-vl:30b-a3b-instruct|512|25|5|0.8,f21c4b8832,"Yes, you should check the first layer and adjust with Live Adjust Z when switching between different types of steel sheets."
+20,qwen2.5-coder:0.5b-instruct|768|0|1|0.8,115c094cb9,You need to put on a PETG print sheet.
+21,qwen2.5-coder:0.5b-instruct|768|25|10|0.4,1ccdff9a91,"No, it is not ok to unplug a toolhead cable on the XL while it's on."
+22,qwen3-vl:30b-a3b-instruct|512|0|3|0.4,95c730789e,"No, the linear rails on the XL do not need grease."
+23,qwen3-vl:30b-a3b-instruct|512|0|3|0.4,438af08aa3,"Yes, you can use acetone on the smooth PEI sheet to restore adhesion if it loses grip. However, do not use acetone on the textured or satin print sheets as it will damage them."
+24,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,ac001a852f,to tighten the nozzle while the nozzle is preheated. While tightening do not forget to hold the heating element with the spanner.
+25,qwen3-vl:30b-a3b-instruct|512|25|10|0.8,055392951e,"X-axis homing fails is most likely caused by the cables leading from the print head to the extruder getting in the way. Ensure that the cables have sufficient leeway and are not blocking the print head from reaching the end of the X-axis. Additionally, check that the cables and PTFE tube leading to the extruder are not touching anything and that there are no blockages in the axes."
+26,qwen3-vl:30b-a3b-instruct|512|25|10|0.8,95c730789e,"Yes, the linear rails on the XL need grease. If the axis is not running smoothly, the bearings can be taken out and greased on the inside. Super-lube or any other multi-purpose grease will do. It is also a good practice to apply lubricant to the linear rail every 3-6 months."
+27,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,d2e3d0cb37,"you can leave small marks on the print surface with your nozzle or tools, they will typically be shinier than the rest. It does not affect the functionality or adhesion. However, if you want to have the same surface look on the whole printbed you can resurface it. The easiest way is to take the hard side of a dry kitchen sponge and gently wipe the affected area with a circular motion a few times."
+28,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,a75e6151d8,"No, you should not open the gearbox on the MK4S to clean the gear unless you have the gearbox alignment tool that comes with the MK4S assembly kit."
+29,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,95c730789e,"No, it is not necessary to apply any sort of lube or grease onto the rails for regular maintenance of the linear rails on the XL."
+30,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,b37a001d21,Mesh Bed Leveling Fails On the MK3.5
+31,gemma3:1b|768|25|3|0.0,4688a08b33,I don't know.
+32,gemma3:1b|768|25|3|0.0,7f08fb5c73,I don't know.
+33,qwen2.5-coder:0.5b-instruct|768|0|1|0.4,825e3344a3,"1. Move the selector with the right button on the MMU3 unit to the far right (service position).
+
+2. Unscrew the fitting from the MMU3 unit.
+
+3. Use a 1.5mm Allen key to push the jammed pieces of the filament out of the selector.
+
+4. Clean the hole with compressed air and try inserting the filament again."
+34,qwen3-vl:30b-a3b-instruct|512|25|5|0.8,ac001a852f,"Be careful, the nozzle is hot during this whole process and can cause burns! Be careful around the hotend thermistor leads, you can break them easily. Be careful, you can bend the heatbreak easily. There must always be a gap (~0.5 mm) between the nozzle and the heater block. Do not overtighten the nozzle. Run first layer calibration after changing the nozzle."
+35,qwen3-vl:30b-a3b-instruct|768|25|3|0.8,f21c4b8832,"No, you can pre-calibrate your favorite print sheets and store the values, allowing you to switch sheet profiles without needing to recalibrate the Z offset each time."
+36,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,ba4aa7687d,"The ObXidian nozzle is ideal for composite materials (e.g., containing carbon fiber)."
+37,gemma3n:e2b|768|25|10|0.4,c3ec29bf92,"The extruder is clicking during the printing is caused by the nozzle being too low. There's not enough space under the nozzle for the plastic to come out, but the extruder gears keep rotating. Raise the nozzle and the noise should go away."
+38,qwen2.5-coder:0.5b-instruct|256|0|5|0.4,bfcab0a6e3,"1.2. Placement and Setup First of all, let's make sure your 3D printer with the MMU3 is placed as recommended. For the Original Prusa MK3S+, MK3.5/S, MK3.9/S, and MK4/S models, the buffer should be placed next to the printer. For the CORE One printers, the standard lengths are as follows:
+11"
+39,qwen3-vl:30b-a3b-instruct|512|25|10|0.8,384bb73773,"Use a flat-blade screwdriver to unscrew the fuse holder, remove the fuse, and insert the new fuse. Screw the fuse holder back into place. Always make sure the new fuse has the same value as the label. If the fuse repeatedly blows, contact technical support."
+40,qwen3-vl:30b-a3b-instruct|512|25|10|0.8,3257b0dd8a,"To change the FEP film on the CW1S rotating platform, unhook the old FEP film and install a new one using the spare FEP films provided in the package."
+41,qwen3-vl:30b-a3b-instruct|512|25|10|0.8,d2e3d0cb37,You put a little bit of the included lubricant on the smooth rods.
+42,qwen2.5-coder:0.5b-instruct|768|0|1|0.4,438c9be0b7,3. 4.
+43,gemma3:1b|768|25|3|0.0,e7bd1840a3,No.
+44,qwen2.5-coder:0.5b-instruct|768|25|10|0.4,ba4aa7687d,The nozzle on the HT90 for carbon fiber filament is the HF nozzle.
+45,qwen2.5-coder:0.5b-instruct|256|0|5|0.4,ba4aa7687d,9.4. Print Sheets
+46,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,438c9be0b7,300 printing hours
+47,gemma3:1b|768|25|3|0.0,9c41c95786,Carefully inspect the rear side of the extruder and compare it to the assembly manual to make sure that the cable bundle leading from the extruder is not causing incorrect homing.
+48,qwen3-vl:30b-a3b-instruct|512|0|3|0.4,03e932826c,"Use a spanner to unscrew the nut on the main PTFE tube and disconnect it from the extruder. Then, manually pull the filament strand out—don’t forget to preheat the nozzle! See chapter PTFE tubes for exact instructions on how to remove the PTFE tube."
+49,qwen3-vl:2b-instruct|768|25|3|0.4,6757d05159,look at it through your phone camera app or take a photo

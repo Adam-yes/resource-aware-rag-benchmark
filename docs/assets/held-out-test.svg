@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="t d">
+<title id="t">Held-out test of the frozen finalists</title>
+<desc id="d">Two scatter plots of development against test F1. The configuration selected on development data ranks 2 of 43 on Test A and 4 of 43 on Test B.</desc>
+
+<style>
+  svg { --bg:#fcfcfb; --plane:#f4f4f1; --ink:#0b0b0b; --ink2:#52514e; --mute:#898781;
+        --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --dot:#c9c8c1; --soft:#e7f0fb; }
+  @media (prefers-color-scheme: dark) {
+    svg { --bg:#1a1a19; --plane:#222220; --ink:#f0efec; --ink2:#c3c2b7; --mute:#898781;
+          --grid:#2c2c2a; --axis:#46463f; --border:rgba(255,255,255,.10);
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; --dot:#4f4e49; --soft:#1c2a3c; }
+  }
+  text { font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--ink); }
+  .t-title { font-size: 26px; font-weight: 650; }
+  .t-sub { font-size: 15.5px; fill: var(--ink2); }
+  .t-h { font-size: 16px; font-weight: 600; }
+  .t-lab { font-size: 13.5px; fill: var(--ink2); }
+  .t-small { font-size: 12.5px; fill: var(--mute); }
+  .t-tick { font-size: 12.5px; fill: var(--mute); font-variant-numeric: tabular-nums; }
+  .t-strong { font-size: 13.5px; font-weight: 600; }
+  .t-kpi { font-size: 38px; font-weight: 650; }
+  .card { fill: var(--bg); stroke: var(--border); stroke-width: 1; }
+  .plane { fill: var(--plane); }
+  .grid { stroke: var(--grid); stroke-width: 1; }
+  .axis { stroke: var(--axis); stroke-width: 1; }
+  .lead { stroke: var(--mute); stroke-width: 1; fill: none; }
+  .dot { fill: var(--dot); }
+  .ring { stroke: var(--bg); stroke-width: 2; }
+  .f-s1 { fill: var(--s1); } .st-s1 { stroke: var(--s1); }
+  .f-s2 { fill: var(--s2); } .st-s2 { stroke: var(--s2); }
+  .f-s3 { fill: var(--s3); } .st-s3 { stroke: var(--s3); }
+  .f-mute { fill: var(--mute); } .st-mute { stroke: var(--mute); }
+  .f-ink { fill: var(--ink); } .st-ink { stroke: var(--ink); }
+  .f-soft { fill: var(--soft); }
+  .line { fill: none; stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; }
+  .box { fill: var(--bg); stroke: var(--axis); stroke-width: 1; }
+  .box-hi { fill: var(--soft); stroke: var(--s1); stroke-width: 1.25; }
+  .arrow { stroke: var(--mute); stroke-width: 1.5; fill: none; }
+  .halo { paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+</style>
+<rect class="card" x="0.5" y="0.5" width="1199" height="619" rx="14"/>
+<text x="40.0" y="52.0" class="t-title" text-anchor="start">The configuration chosen on development data stays near the top on unseen questions</text>
+<text x="40.0" y="80.0" class="t-sub" text-anchor="start">Development F1 against test F1 for the 43 frozen finalists. Each finalist was scored once, after the freeze.</text>
+<text x="40.0" y="118.0" class="t-h" text-anchor="start">Test A: 162 unused questions</text>
+<text x="40.0" y="138.0" class="t-lab" text-anchor="start">Selected setup ranks 2 of 43; test F1 0.380, +0.109 against the random finalists</text>
+<path class="grid" d="M96.0,472.7 H560.0"/>
+<text x="86.0" y="476.7" class="t-tick" text-anchor="end">0.1</text>
+<path class="grid" d="M96.0,378.1 H560.0"/>
+<text x="86.0" y="382.1" class="t-tick" text-anchor="end">0.2</text>
+<path class="grid" d="M96.0,283.5 H560.0"/>
+<text x="86.0" y="287.5" class="t-tick" text-anchor="end">0.3</text>
+<path class="grid" d="M96.0,188.9 H560.0"/>
+<text x="86.0" y="192.9" class="t-tick" text-anchor="end">0.4</text>
+<text x="181.9" y="540.0" class="t-tick" text-anchor="middle">0.2</text>
+<text x="353.8" y="540.0" class="t-tick" text-anchor="middle">0.3</text>
+<text x="525.6" y="540.0" class="t-tick" text-anchor="middle">0.4</text>
+<path class="axis" d="M96.0,520 H560.0"/>
+<path class="lead" style="stroke-dasharray:0" d="M96.0,425.4 L560.0,170.0"/>
+<text x="173.3" y="398.8" class="t-small" text-anchor="start" transform="rotate(-28.8 173.3 398.8)">test = dev</text>
+<text x="328.0" y="566.0" class="t-lab" text-anchor="middle">Development F1</text>
+<text x="46.0" y="345.0" class="t-lab" text-anchor="middle" transform="rotate(-90 46.0 345.0)">Test F1</text>
+<circle cx="285.4" cy="382.1" r="4.5" class="dot ring"><title>gemma3 1B, chunk 768, Top-k 3, T 0.0: dev 0.260, test 0.196</title></circle>
+<circle cx="498.1" cy="257.2" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 1024, Top-k 10, T 0.8: dev 0.384, test 0.328</title></circle>
+<circle cx="473.4" cy="260.8" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 1024, Top-k 8, T 0.4: dev 0.370, test 0.324</title></circle>
+<circle cx="478.2" cy="255.7" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 1024, Top-k 8, T 0.8: dev 0.372, test 0.329</title></circle>
+<circle cx="333.8" cy="287.9" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 512, Top-k 8, T 0.4: dev 0.288, test 0.295</title></circle>
+<circle cx="473.4" cy="266.6" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 512, Top-k 10, T 0.0: dev 0.370, test 0.318</title></circle>
+<circle cx="482.7" cy="285.6" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 512, Top-k 10, T 0.8: dev 0.375, test 0.298</title></circle>
+<circle cx="139.0" cy="378.4" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 512, Top-k 1, T 0.8: dev 0.175, test 0.200</title></circle>
+<circle cx="467.2" cy="270.0" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 768, Top-k 8, T 0.0: dev 0.366, test 0.314</title></circle>
+<circle cx="466.5" cy="276.2" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 768, Top-k 10, T 0.4: dev 0.366, test 0.308</title></circle>
+<circle cx="274.7" cy="363.0" r="4.5" class="dot ring"><title>granite4 tiny-h, chunk 768, Top-k 1, T 0.8: dev 0.254, test 0.216</title></circle>
+<circle cx="318.0" cy="318.4" r="4.5" class="dot ring"><title>granite4 tiny-h, chunk 768, Top-k 3, T 0.0: dev 0.279, test 0.263</title></circle>
+<circle cx="153.1" cy="320.1" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 1024, Top-k 1, T 0.4: dev 0.183, test 0.261</title></circle>
+<circle cx="341.7" cy="241.3" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 1024, Top-k 10, T 0.0: dev 0.293, test 0.345</title></circle>
+<circle cx="131.1" cy="353.5" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 256, Top-k 1, T 0.0: dev 0.170, test 0.226</title></circle>
+<circle cx="249.3" cy="319.9" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 256, Top-k 3, T 0.4: dev 0.239, test 0.262</title></circle>
+<circle cx="286.8" cy="280.8" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 768, Top-k 5, T 0.8: dev 0.261, test 0.303</title></circle>
+<circle cx="233.8" cy="330.6" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 1024, Top-k 5, T 0.0: dev 0.230, test 0.250</title></circle>
+<circle cx="191.2" cy="389.7" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 256, Top-k 5, T 0.4: dev 0.205, test 0.188</title></circle>
+<circle cx="199.5" cy="372.7" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 256, Top-k 8, T 0.4: dev 0.210, test 0.206</title></circle>
+<circle cx="225.6" cy="338.4" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 512, Top-k 10, T 0.8: dev 0.225, test 0.242</title></circle>
+<circle cx="129.0" cy="367.1" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 768, Top-k 1, T 0.4: dev 0.169, test 0.212</title></circle>
+<circle cx="174.4" cy="405.1" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 768, Top-k 1, T 0.8: dev 0.196, test 0.171</title></circle>
+<circle cx="277.5" cy="344.9" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 768, Top-k 10, T 0.4: dev 0.256, test 0.235</title></circle>
+<circle cx="204.6" cy="271.9" r="4.5" class="dot ring"><title>qwen3-vl 2B, chunk 768, Top-k 1, T 0.0: dev 0.213, test 0.312</title></circle>
+<circle cx="384.0" cy="234.1" r="4.5" class="dot ring"><title>qwen3-vl 2B, chunk 768, Top-k 3, T 0.4: dev 0.318, test 0.352</title></circle>
+<circle cx="358.6" cy="232.4" r="4.5" class="dot ring"><title>qwen3-vl 2B, chunk 768, Top-k 8, T 0.4: dev 0.303, test 0.354</title></circle>
+<circle cx="364.1" cy="229.1" r="4.5" class="f-mute ring"><title>qwen3-vl 2B, chunk 896, Top-k 8, T 0.4: dev 0.306, test 0.358</title></circle>
+<circle cx="421.8" cy="201.2" r="4.5" class="f-mute ring"><title>qwen3-vl 30B-A3B, chunk 1024, Top-k 10, T 0.3: dev 0.340, test 0.387</title></circle>
+<circle cx="117.3" cy="378.0" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 256, Top-k 1, T 0.8: dev 0.162, test 0.200</title></circle>
+<circle cx="240.7" cy="340.8" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 256, Top-k 3, T 0.4: dev 0.234, test 0.239</title></circle>
+<circle cx="371.3" cy="246.4" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 10, T 0.4: dev 0.310, test 0.339</title></circle>
+<circle cx="399.8" cy="285.9" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 3, T 0.4: dev 0.327, test 0.297</title></circle>
+<circle cx="471.3" cy="227.8" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 10, T 0.0: dev 0.368, test 0.359</title></circle>
+<circle cx="482.0" cy="226.5" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 10, T 0.4: dev 0.375, test 0.360</title></circle>
+<circle cx="510.5" cy="231.2" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 10, T 0.8: dev 0.391, test 0.355</title></circle>
+<circle cx="423.9" cy="266.2" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 5, T 0.8: dev 0.341, test 0.318</title></circle>
+<circle cx="448.0" cy="230.3" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 8, T 0.0: dev 0.355, test 0.356</title></circle>
+<circle cx="487.8" cy="227.3" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 768, Top-k 10, T 0.4: dev 0.378, test 0.359</title></circle>
+<circle cx="488.2" cy="219.3" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 768, Top-k 10, T 0.0: dev 0.378, test 0.368</title></circle>
+<circle cx="474.8" cy="252.6" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 768, Top-k 3, T 0.8: dev 0.370, test 0.333</title></circle>
+<circle cx="490.9" cy="227.5" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 768, Top-k 8, T 0.4: dev 0.380, test 0.359</title></circle>
+<circle cx="519.4" cy="207.7" r="6.5" class="f-s1 ring"/>
+<text x="507.4" y="211.7" class="t-strong halo" text-anchor="end">selected</text>
+<text x="640.0" y="118.0" class="t-h" text-anchor="start">Test B: 40 independently written questions</text>
+<text x="640.0" y="138.0" class="t-lab" text-anchor="start">Selected setup ranks 4 of 43; test F1 0.521, +0.259 against the random finalists</text>
+<path class="grid" d="M696.0,488.2 H1160.0"/>
+<text x="686.0" y="492.2" class="t-tick" text-anchor="end">0.1</text>
+<path class="grid" d="M696.0,424.5 H1160.0"/>
+<text x="686.0" y="428.5" class="t-tick" text-anchor="end">0.2</text>
+<path class="grid" d="M696.0,360.9 H1160.0"/>
+<text x="686.0" y="364.9" class="t-tick" text-anchor="end">0.3</text>
+<path class="grid" d="M696.0,297.3 H1160.0"/>
+<text x="686.0" y="301.3" class="t-tick" text-anchor="end">0.4</text>
+<path class="grid" d="M696.0,233.6 H1160.0"/>
+<text x="686.0" y="237.6" class="t-tick" text-anchor="end">0.5</text>
+<path class="grid" d="M696.0,170.0 H1160.0"/>
+<text x="686.0" y="174.0" class="t-tick" text-anchor="end">0.6</text>
+<text x="781.9" y="540.0" class="t-tick" text-anchor="middle">0.2</text>
+<text x="953.8" y="540.0" class="t-tick" text-anchor="middle">0.3</text>
+<text x="1125.6" y="540.0" class="t-tick" text-anchor="middle">0.4</text>
+<path class="axis" d="M696.0,520 H1160.0"/>
+<path class="lead" style="stroke-dasharray:0" d="M696.0,456.4 L1160.0,284.5"/>
+<text x="773.3" y="443.7" class="t-small" text-anchor="start" transform="rotate(-20.3 773.3 443.7)">test = dev</text>
+<text x="928.0" y="566.0" class="t-lab" text-anchor="middle">Development F1</text>
+<circle cx="885.4" cy="440.1" r="4.5" class="dot ring"><title>gemma3 1B, chunk 768, Top-k 3, T 0.0: dev 0.260, test 0.176</title></circle>
+<circle cx="1098.1" cy="270.7" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 1024, Top-k 10, T 0.8: dev 0.384, test 0.442</title></circle>
+<circle cx="1073.4" cy="272.9" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 1024, Top-k 8, T 0.4: dev 0.370, test 0.438</title></circle>
+<circle cx="1078.2" cy="264.0" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 1024, Top-k 8, T 0.8: dev 0.372, test 0.452</title></circle>
+<circle cx="933.8" cy="298.5" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 512, Top-k 8, T 0.4: dev 0.288, test 0.398</title></circle>
+<circle cx="1073.4" cy="236.0" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 512, Top-k 10, T 0.0: dev 0.370, test 0.496</title></circle>
+<circle cx="1082.7" cy="259.4" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 512, Top-k 10, T 0.8: dev 0.375, test 0.460</title></circle>
+<circle cx="739.0" cy="425.2" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 512, Top-k 1, T 0.8: dev 0.175, test 0.199</title></circle>
+<circle cx="1067.2" cy="278.0" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 768, Top-k 8, T 0.0: dev 0.366, test 0.430</title></circle>
+<circle cx="1066.5" cy="226.3" r="4.5" class="dot ring"><title>gemma3n e2b, chunk 768, Top-k 10, T 0.4: dev 0.366, test 0.512</title></circle>
+<circle cx="874.7" cy="433.1" r="4.5" class="dot ring"><title>granite4 tiny-h, chunk 768, Top-k 1, T 0.8: dev 0.254, test 0.186</title></circle>
+<circle cx="918.0" cy="412.6" r="4.5" class="dot ring"><title>granite4 tiny-h, chunk 768, Top-k 3, T 0.0: dev 0.279, test 0.219</title></circle>
+<circle cx="753.1" cy="413.9" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 1024, Top-k 1, T 0.4: dev 0.183, test 0.217</title></circle>
+<circle cx="941.7" cy="349.9" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 1024, Top-k 10, T 0.0: dev 0.293, test 0.317</title></circle>
+<circle cx="731.1" cy="458.4" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 256, Top-k 1, T 0.0: dev 0.170, test 0.147</title></circle>
+<circle cx="849.3" cy="411.2" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 256, Top-k 3, T 0.4: dev 0.239, test 0.221</title></circle>
+<circle cx="886.8" cy="391.0" r="4.5" class="dot ring"><title>phi4-mini 3.8B, chunk 768, Top-k 5, T 0.8: dev 0.261, test 0.253</title></circle>
+<circle cx="833.8" cy="486.8" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 1024, Top-k 5, T 0.0: dev 0.230, test 0.102</title></circle>
+<circle cx="791.2" cy="505.2" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 256, Top-k 5, T 0.4: dev 0.205, test 0.073</title></circle>
+<circle cx="799.5" cy="487.5" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 256, Top-k 8, T 0.4: dev 0.210, test 0.101</title></circle>
+<circle cx="825.6" cy="482.8" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 512, Top-k 10, T 0.8: dev 0.225, test 0.108</title></circle>
+<circle cx="729.0" cy="500.9" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 768, Top-k 1, T 0.4: dev 0.169, test 0.080</title></circle>
+<circle cx="774.4" cy="489.5" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 768, Top-k 1, T 0.8: dev 0.196, test 0.098</title></circle>
+<circle cx="877.5" cy="471.3" r="4.5" class="dot ring"><title>qwen2.5-coder 0.5B, chunk 768, Top-k 10, T 0.4: dev 0.256, test 0.127</title></circle>
+<circle cx="804.6" cy="416.9" r="4.5" class="dot ring"><title>qwen3-vl 2B, chunk 768, Top-k 1, T 0.0: dev 0.213, test 0.212</title></circle>
+<circle cx="984.0" cy="395.1" r="4.5" class="dot ring"><title>qwen3-vl 2B, chunk 768, Top-k 3, T 0.4: dev 0.318, test 0.246</title></circle>
+<circle cx="958.6" cy="324.5" r="4.5" class="dot ring"><title>qwen3-vl 2B, chunk 768, Top-k 8, T 0.4: dev 0.303, test 0.357</title></circle>
+<circle cx="964.1" cy="308.9" r="4.5" class="f-mute ring"><title>qwen3-vl 2B, chunk 896, Top-k 8, T 0.4: dev 0.306, test 0.382</title></circle>
+<circle cx="1021.8" cy="257.3" r="4.5" class="f-mute ring"><title>qwen3-vl 30B-A3B, chunk 1024, Top-k 10, T 0.3: dev 0.340, test 0.463</title></circle>
+<circle cx="717.3" cy="357.1" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 256, Top-k 1, T 0.8: dev 0.162, test 0.306</title></circle>
+<circle cx="840.7" cy="361.4" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 256, Top-k 3, T 0.4: dev 0.234, test 0.299</title></circle>
+<circle cx="971.3" cy="229.3" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 10, T 0.4: dev 0.310, test 0.507</title></circle>
+<circle cx="999.8" cy="327.0" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 3, T 0.4: dev 0.327, test 0.353</title></circle>
+<circle cx="1071.3" cy="276.8" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 10, T 0.0: dev 0.368, test 0.432</title></circle>
+<circle cx="1082.0" cy="272.0" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 10, T 0.4: dev 0.375, test 0.440</title></circle>
+<circle cx="1110.5" cy="300.5" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 10, T 0.8: dev 0.391, test 0.395</title></circle>
+<circle cx="1023.9" cy="296.6" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 5, T 0.8: dev 0.341, test 0.401</title></circle>
+<circle cx="1048.0" cy="259.1" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 512, Top-k 8, T 0.0: dev 0.355, test 0.460</title></circle>
+<circle cx="1087.8" cy="216.3" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 768, Top-k 10, T 0.4: dev 0.378, test 0.527</title></circle>
+<circle cx="1088.2" cy="201.7" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 768, Top-k 10, T 0.0: dev 0.378, test 0.550</title></circle>
+<circle cx="1074.8" cy="307.5" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 768, Top-k 3, T 0.8: dev 0.370, test 0.384</title></circle>
+<circle cx="1090.9" cy="219.6" r="4.5" class="dot ring"><title>qwen3-vl 30B-A3B, chunk 768, Top-k 8, T 0.4: dev 0.380, test 0.522</title></circle>
+<circle cx="1119.4" cy="220.1" r="6.5" class="f-s1 ring"/>
+<text x="1107.4" y="224.1" class="t-strong halo" text-anchor="end">selected</text>
+<circle cx="45" cy="594" r="5" class="f-s1"/>
+<text x="56.0" y="598.0" class="t-small" text-anchor="start">Selected on development questions</text>
+<circle cx="315" cy="594" r="5" class="f-mute"/>
+<text x="326.0" y="598.0" class="t-small" text-anchor="start">Two reference configurations outside the grid</text>
+<circle cx="565" cy="594" r="5" class="dot"/>
+<text x="576.0" y="598.0" class="t-small" text-anchor="start">Other finalists (Pareto, search output, random)</text>
+<text x="1160.0" y="598.0" class="t-small" text-anchor="end">Source: results/tables/generalization.csv</text>
+</svg>

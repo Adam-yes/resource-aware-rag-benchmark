@@ -1,0 +1,78 @@
+# Experiment protocol. Fixed BEFORE any new result is seen;
+# `python -m ragbench freeze` records its SHA-256 next to the frozen finalists.
+
+embedding_model: embeddinggemma:300m
+# Default primary judge: different vendor than the Qwen model that synthesized the benchmark, and
+# not a candidate. judge-gate may switch to judge_secondary on rating evidence (rule below).
+judge_primary: gpt-oss:20b
+# Original judge. Used only to measure judge sensitivity and same-family bias.
+judge_secondary: qwen3-coder:30b
+generation: {num_predict: 1024, num_ctx: 5120, seed: 42}
+judge: {num_ctx: 5120, seed: 42, atomicity: low, coverage: high, concurrency: 8}
+
+# Full factorial: 8 x 4 x 2 x 5 x 3 = 960 configurations, each scored on all dev questions.
+# Reduced a priori from the archived 60,984-point grid; both judges are excluded as candidates.
+grid:
+  model:
+    - qwen3-vl:30b-a3b-instruct
+    - gemma3n:e2b
+    - granite4:tiny-h
+    - phi4-mini:3.8b-q4_K_M
+    - qwen3-vl:2b-instruct
+    - granite3.3:2b
+    - gemma3:1b
+    - qwen2.5-coder:0.5b-instruct
+  chunk_size: [256, 512, 768, 1024]
+  chunk_overlap: [0, 25]
+  top_k: [1, 3, 5, 8, 10]
+  temperature: [0.0, 0.4, 0.8]
+
+# Measurement noise: extra generation seeds. Temperature above 0 only (seeded temperature 0 repeats itself and would hide noise), plus the
+# best dev configurations, because rank stability matters most near the optimum.
+noise: {n_random: 20, n_top: 20, seeds: [43, 44], sample_seed: 7}
+
+# Replayed on the finished table, so seeds and budgets cost no LLM time.
+search:
+  budgets: [25, 50, 100, 150]
+  n_seeds: 50
+  ga: {pop_size: 12, cxpb: 0.7, mutpb: 0.4, indpb: 0.2, tournsize: 3, elites: 1}
+  # Competitive coevolution: a second population of question subsets evolves against the configurations.
+  # Same budget as the GA: it only decides which already measured scores steer the search.
+  # Fixed before any result is seen and not tuned.
+  coevolution: {subset_share: 0.3, parasites: 12, hall_of_fame: 10, swap_prob: 0.3}
+  freeze_budget: 50
+  # Evidence for "search helps": hold out one manual, search on the rest, score on the held-out one.
+  # A method only counts as better than random if the manual-level 95% CI excludes min_effect_f1.
+  lomo_seeds: 10
+  min_effect_f1: 0.02
+
+# Finalists are frozen on dev data, then scored once on the untouched test questions.
+finalists: {n_pareto: 15, n_selected: 10, n_coevolution: 5, n_random: 15, sample_seed: 11}
+
+# Published configurations from the archived run, rerun as extra arms outside the grid.
+archived_arms:
+  - qwen3-vl:30b-a3b-instruct|1024|25|10|0.3
+  - qwen3-vl:2b-instruct|896|25|8|0.4
+
+# Two fresh Claude agents rate a random answer sample blind BEFORE the full judging run, as a third
+# model family. These are LLM ratings and must be reported as such, never as human review.
+# Both judges score the same sample. Keep the default judge unless it misses min_spearman or trails the other by more than max_gap.
+# If neither judge reaches min_spearman the run stops for a human decision.
+judge_gate: {n_answers: 100, sample_seed: 17, min_spearman: 0.5, max_gap: 0.1}
+# Same-family check: only random grid configurations, because finalists were selected on the primary judge.
+judge_check: {n_grid_configs: 100, sample_seed: 13}
+# Sanity anchors plus test-retest under another judge seed (the cache would otherwise hide this noise).
+judge_controls: {n_retest_configs: 4, retest_seed: 43, sample_seed: 19}
+
+# Resource characterization of frozen operating points.
+latency:
+  repetitions: 3
+  cpu_threads: 8
+  concurrency_levels: [1, 2, 4, 8]
+  concurrency_requests: 60
+  n_load_points: 3
+
+bootstrap: {n: 10000, seed: 1}
+# Rated after the freeze: answers of frozen operating points to the independently written test questions.
+# n_person: optional sheet for a real person, the only evidence that counts as human review.
+human_rating_test: {n_answers: 50, n_person: 40, sample_seed: 23}

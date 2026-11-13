@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Citation details will be updated after publication."
+title: "Resource-Aware RAG Benchmark"
+authors:
+  - family-names: "Altenbuchner"
+    given-names: "Adam Michael"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/Adam-yes/resource-aware-rag-benchmark"
+abstract: "Full-factorial benchmark of local Naive-RAG configurations on technical manufacturing manuals, with configuration search and held-out validation."
+keywords:
+  - retrieval-augmented generation
+  - benchmark
+  - hyperparameter optimization
+  - genetic algorithm
+  - manufacturing
+  - resource-aware AI
+

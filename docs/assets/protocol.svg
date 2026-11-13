@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="t d">
+<title id="t">Evaluation protocol</title>
+<desc id="d">Six stages: measure all configurations, choose the judge, replay the search methods, validate by leaving one manual out, freeze the finalists with hashes, and score them once on unseen questions.</desc>
+
+<style>
+  svg { --bg:#fcfcfb; --plane:#f4f4f1; --ink:#0b0b0b; --ink2:#52514e; --mute:#898781;
+        --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --dot:#c9c8c1; --soft:#e7f0fb; }
+  @media (prefers-color-scheme: dark) {
+    svg { --bg:#1a1a19; --plane:#222220; --ink:#f0efec; --ink2:#c3c2b7; --mute:#898781;
+          --grid:#2c2c2a; --axis:#46463f; --border:rgba(255,255,255,.10);
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; --dot:#4f4e49; --soft:#1c2a3c; }
+  }
+  text { font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--ink); }
+  .t-title { font-size: 26px; font-weight: 650; }
+  .t-sub { font-size: 15.5px; fill: var(--ink2); }
+  .t-h { font-size: 16px; font-weight: 600; }
+  .t-lab { font-size: 13.5px; fill: var(--ink2); }
+  .t-small { font-size: 12.5px; fill: var(--mute); }
+  .t-tick { font-size: 12.5px; fill: var(--mute); font-variant-numeric: tabular-nums; }
+  .t-strong { font-size: 13.5px; font-weight: 600; }
+  .t-kpi { font-size: 38px; font-weight: 650; }
+  .card { fill: var(--bg); stroke: var(--border); stroke-width: 1; }
+  .plane { fill: var(--plane); }
+  .grid { stroke: var(--grid); stroke-width: 1; }
+  .axis { stroke: var(--axis); stroke-width: 1; }
+  .lead { stroke: var(--mute); stroke-width: 1; fill: none; }
+  .dot { fill: var(--dot); }
+  .ring { stroke: var(--bg); stroke-width: 2; }
+  .f-s1 { fill: var(--s1); } .st-s1 { stroke: var(--s1); }
+  .f-s2 { fill: var(--s2); } .st-s2 { stroke: var(--s2); }
+  .f-s3 { fill: var(--s3); } .st-s3 { stroke: var(--s3); }
+  .f-mute { fill: var(--mute); } .st-mute { stroke: var(--mute); }
+  .f-ink { fill: var(--ink); } .st-ink { stroke: var(--ink); }
+  .f-soft { fill: var(--soft); }
+  .line { fill: none; stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; }
+  .box { fill: var(--bg); stroke: var(--axis); stroke-width: 1; }
+  .box-hi { fill: var(--soft); stroke: var(--s1); stroke-width: 1.25; }
+  .arrow { stroke: var(--mute); stroke-width: 1.5; fill: none; }
+  .halo { paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+</style>
+<rect class="card" x="0.5" y="0.5" width="1199" height="469" rx="14"/>
+<text x="40.0" y="52.0" class="t-title" text-anchor="start">Search, selection and testing are kept apart</text>
+<text x="40.0" y="80.0" class="t-sub" text-anchor="start">Settings were fixed in protocol.yaml before the run; test questions were used once.</text>
+<rect class="box" x="40.0" y="150" width="165.0" height="150" rx="10"/>
+<circle cx="62.0" cy="176" r="11" class="f-ink"/>
+<text x="62.0" y="180.5" class="t-strong" text-anchor="middle" style="fill:var(--bg);font-size:12.5px">1</text>
+<text x="80.0" y="181.0" class="t-h" text-anchor="start" style="font-size:15px">Measure</text>
+<text x="56.0" y="214.0" class="t-lab" text-anchor="start" style="font-size:13px">960 configurations</text>
+<text x="56.0" y="234.0" class="t-lab" text-anchor="start" style="font-size:13px">8 models, 4 chunk sizes,</text>
+<text x="56.0" y="254.0" class="t-lab" text-anchor="start" style="font-size:13px">2 overlaps, 5 Top-k,</text>
+<text x="56.0" y="274.0" class="t-lab" text-anchor="start" style="font-size:13px">3 temperatures</text>
+<path class="arrow" d="M210.0,225.0 h16"/>
+<path d="M226.0,221.0 l6,4 l-6,4z" class="f-mute"/>
+<rect class="box" x="231.0" y="150" width="165.0" height="150" rx="10"/>
+<circle cx="253.0" cy="176" r="11" class="f-ink"/>
+<text x="253.0" y="180.5" class="t-strong" text-anchor="middle" style="fill:var(--bg);font-size:12.5px">2</text>
+<text x="271.0" y="181.0" class="t-h" text-anchor="start" style="font-size:15px">Choose judge</text>
+<text x="247.0" y="214.0" class="t-lab" text-anchor="start" style="font-size:13px">Fixed rule against</text>
+<text x="247.0" y="234.0" class="t-lab" text-anchor="start" style="font-size:13px">blind ratings</text>
+<text x="247.0" y="254.0" class="t-lab" text-anchor="start" style="font-size:13px">judge: gpt-oss:20b</text>
+<text x="247.0" y="274.0" class="t-lab" text-anchor="start" style="font-size:13px">2nd: qwen3-coder:30b</text>
+<path class="arrow" d="M401.0,225.0 h16"/>
+<path d="M417.0,221.0 l6,4 l-6,4z" class="f-mute"/>
+<rect class="box" x="422.0" y="150" width="165.0" height="150" rx="10"/>
+<circle cx="444.0" cy="176" r="11" class="f-ink"/>
+<text x="444.0" y="180.5" class="t-strong" text-anchor="middle" style="fill:var(--bg);font-size:12.5px">3</text>
+<text x="462.0" y="181.0" class="t-h" text-anchor="start" style="font-size:15px">Replay search</text>
+<text x="438.0" y="214.0" class="t-lab" text-anchor="start" style="font-size:13px">GA, coevolution, TPE,</text>
+<text x="438.0" y="234.0" class="t-lab" text-anchor="start" style="font-size:13px">coordinate ascent,</text>
+<text x="438.0" y="254.0" class="t-lab" text-anchor="start" style="font-size:13px">random; 50 seeds,</text>
+<text x="438.0" y="274.0" class="t-lab" text-anchor="start" style="font-size:13px">budgets 25 to 150</text>
+<path class="arrow" d="M592.0,225.0 h16"/>
+<path d="M608.0,221.0 l6,4 l-6,4z" class="f-mute"/>
+<rect class="box" x="613.0" y="150" width="165.0" height="150" rx="10"/>
+<circle cx="635.0" cy="176" r="11" class="f-ink"/>
+<text x="635.0" y="180.5" class="t-strong" text-anchor="middle" style="fill:var(--bg);font-size:12.5px">4</text>
+<text x="653.0" y="181.0" class="t-h" text-anchor="start" style="font-size:15px">Hold out manuals</text>
+<text x="629.0" y="214.0" class="t-lab" text-anchor="start" style="font-size:13px">Leave one manual out</text>
+<text x="629.0" y="234.0" class="t-lab" text-anchor="start" style="font-size:13px">over 20 manuals</text>
+<text x="629.0" y="254.0" class="t-lab" text-anchor="start" style="font-size:13px">for every method</text>
+<text x="629.0" y="274.0" class="t-lab" text-anchor="start" style="font-size:13px">and seed</text>
+<path class="arrow" d="M783.0,225.0 h16"/>
+<path d="M799.0,221.0 l6,4 l-6,4z" class="f-mute"/>
+<rect class="box-hi" x="804.0" y="150" width="165.0" height="150" rx="10"/>
+<circle cx="826.0" cy="176" r="11" class="f-s1"/>
+<text x="826.0" y="180.5" class="t-strong" text-anchor="middle" style="fill:var(--bg);font-size:12.5px">5</text>
+<text x="844.0" y="181.0" class="t-h" text-anchor="start" style="font-size:15px">Freeze</text>
+<text x="820.0" y="214.0" class="t-lab" text-anchor="start" style="font-size:13px">43 finalists</text>
+<text x="820.0" y="234.0" class="t-lab" text-anchor="start" style="font-size:13px">SHA-256 of protocol,</text>
+<text x="820.0" y="254.0" class="t-lab" text-anchor="start" style="font-size:13px">code and data</text>
+<text x="820.0" y="274.0" class="t-lab" text-anchor="start" style="font-size:13px">written to disk</text>
+<path class="arrow" d="M974.0,225.0 h16"/>
+<path d="M990.0,221.0 l6,4 l-6,4z" class="f-mute"/>
+<rect class="box" x="995.0" y="150" width="165.0" height="150" rx="10"/>
+<circle cx="1017.0" cy="176" r="11" class="f-ink"/>
+<text x="1017.0" y="180.5" class="t-strong" text-anchor="middle" style="fill:var(--bg);font-size:12.5px">6</text>
+<text x="1035.0" y="181.0" class="t-h" text-anchor="start" style="font-size:15px">Test once</text>
+<text x="1011.0" y="214.0" class="t-lab" text-anchor="start" style="font-size:13px">162 unused questions</text>
+<text x="1011.0" y="234.0" class="t-lab" text-anchor="start" style="font-size:13px">40 independently</text>
+<text x="1011.0" y="254.0" class="t-lab" text-anchor="start" style="font-size:13px">written questions</text>
+<text x="1011.0" y="274.0" class="t-lab" text-anchor="start" style="font-size:13px">scored once</text>
+<rect class="plane" x="40" y="334" width="738.0" height="44" rx="8"/>
+<text x="409.0" y="361.0" class="t-strong" text-anchor="middle">Development questions only (50 questions, 20 manuals)</text>
+<rect class="f-soft" x="995.0" y="334" width="165.0" height="44" rx="8"/>
+<text x="1077.5" y="361.0" class="t-strong" text-anchor="middle">Unseen questions</text>
+<path class="st-s1" style="stroke-width:1.5" d="M886.5,308 V378"/>
+<text x="886.5" y="398.0" class="t-small" text-anchor="middle">hashes checked before scoring</text>
+<path class="grid" d="M40,412 H1160"/>
+<text x="40.0" y="442.0" class="t-small" text-anchor="start" style="font-size:13px">Runtime: Ollama 0.40.14 with local open-weight models  ·  Chroma vector stores  ·  RAGAS Factual Correctness (F1)  ·  NVIDIA RTX A6000, 48 GB</text>
+</svg>

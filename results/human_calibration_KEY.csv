@@ -1,0 +1,131 @@
+item,cfg,qid,answer
+0,qwen2.5-coder:0.5b-instruct|1024|0|8|0.4,e5362692a9,Place the machine in a horizontally stable position - the best place is a workbench.
+1,qwen2.5-coder:0.5b-instruct|768|25|10|0.8,17b3d9dc53,The original Prusa i3 manual requires a full installation of the latest firmware.
+2,qwen2.5-coder:0.5b-instruct|256|25|8|0.0,552898a18b,The Prusa Pro HT90 3D printer handbook is available in other languages and can be found at prusa.io/ht90-maintenance.
+3,gemma3:1b|768|25|5|0.4,a95dcc93f5,Prusa Research is a company that designs and manufactures 3D printers. The Original Prusa i3 MK3S+ printer is a successor to the Original Prusa i3.
+4,qwen3-vl:2b-instruct|1024|25|10|0.0,2cd5907b57,The Prusa lubricant is used to clean the smooth rods in the printer and to move the axis back and forth to clean the dirt and increase longevity.
+5,gemma3n:e2b|1024|0|10|0.4,af5d1cd99a,"SLA printers use UV light to cure (solidify) photosensitive liquid resins. The printer uses a mask to display a single layer at a time, and UV light cures the layer, which then adheres to the print platform. The platform moves upwards to create space for the next layer.
+
+
+
+"
+6,qwen2.5-coder:0.5b-instruct|256|25|8|0.0,e5362692a9,The recommended placement for the CW1S 3D printer according to the setup instructions is to place it in a well-ventilated area!
+7,gemma3:1b|768|25|5|0.4,e5362692a9,"Place the machine in a horizontally stable position - the best place is a workbench. A good practice is to put a plastic tablecloth under the machine in case a resin / IPA spill occurs. The external power supply should be placed in such a manner that will prevent anyone from tripping over the cable, or damaging it. Do not place the device next to a source of water or into a wet environment."
+8,granite4:tiny-h|256|25|8|0.4,c682a1debc,"Josef Prusa has presented 3D printing technology at the TEDx conference in Prague and Vienna, at World Maker Faire in New York, and at Maker events."
+9,qwen3-vl:2b-instruct|512|0|10|0.4,c830d6985e,"The Einsy Rambo Board is a component of the Original Prusa i3 MK3S+ printer, which is used for connecting the printer's mainboard (RAMBo) to the PC via a square-shaped USB-B 2.0 cable. It is part of the firmware flashing process, as described in the PrusaSlicer software setup."
+10,qwen2.5-coder:0.5b-instruct|1024|0|8|0.4,2ec2a102c4,SL1 files are used for in 3D printing.
+11,granite4:tiny-h|256|25|8|0.4,67fa44a268,"Upon launching PrusaSlicer, select Original Prusa MK3.5 from the Printer drop-down menu on the right. If you don't see the Original Prusa MK3.5 in the list, you will need to flash the correct firmware onto your printer. All motherboards are shipped with universal MK4S firmware by default and need to be reflashed after the first start. The system will perform a quick check of your hardware and ask you to update the firmware using the bundled USB flash drive. You can also always download the firmware file from Prusa Research's website."
+12,qwen3-vl:30b-a3b-instruct|512|0|8|0.8,70cf091fbf,"Josef Průša studied at the University of Economics in 2009, which sparked his interest in 3D printing."
+13,phi4-mini:3.8b-q4_K_M|512|25|8|0.0,6dec7b01ff,"It ensures sharp color transitions and stable filament flow, improving filament efficiency."
+14,qwen3-vl:30b-a3b-instruct|512|0|8|0.8,7e2634e5c4,CW1
+15,phi4-mini:3.8b-q4_K_M|512|0|3|0.4,2ec2a102c4,They are converted files for 3D printing.
+16,phi4-mini:3.8b-q4_K_M|256|0|5|0.0,9a106773ae,"Adrien Bowyer is one of the main developers of the RepRap project, and Prusa's design is one of the most used printers based on his work."
+17,phi4-mini:3.8b-q4_K_M|768|0|8|0.4,a01562c8dd,"ABS material has a higher thermal expansion than other materials. We suggest using PET, HIPS, or PLA for larger models."
+18,qwen2.5-coder:0.5b-instruct|768|0|8|0.8,45ebe05cf9,"Partyzánská 188/7A, Holešovice, 170 00, Prague, Czech republic"
+19,qwen3-vl:30b-a3b-instruct|512|0|8|0.8,02026ad142,The power supply voltage for the 3D printer is 110 VAC or 230 VAC.
+20,qwen3-vl:30b-a3b-instruct|512|0|8|0.8,57a8c3c113,"The Original Prusa MK3.5S is a 3D printer compatible with MK3S/+ print sheets. To use it properly, refer to the handbook for initial calibration and advanced features, and follow the Regular Maintenance instructions to keep it in optimal condition."
+21,phi4-mini:3.8b-q4_K_M|256|0|5|0.0,27589ddedf,"An SLA, specifically MSLA, 3D printer that uses UV light to cure photosensitive liquid resins."
+22,qwen3-vl:30b-a3b-instruct|512|0|8|0.8,16179dadad,"The industrial filament dryer is used to dry filament before printing, as keeping the filament dry is essential to maintain its mechanical properties."
+23,phi4-mini:3.8b-q4_K_M|768|0|8|0.4,4548cb43ea,It does not measure RPM and needs to be checked visually.
+24,qwen2.5-coder:0.5b-instruct|256|0|8|0.0,a95dcc93f5,"Prusa3d is a 3D printing software developed by Prusa Research. It is specifically designed for the Original Prusa i3 MK3S+ printer, which is a successor to the Original Prusa i3 MK2S. Prusa3d provides a range of features and tools to help users create and print 3D models, including 3D printing, slicing, and manufacturing."
+25,gemma3:1b|512|25|8|0.8,7e2634e5c4,Curing and Washing Machine (CW1)
+26,qwen3-vl:30b-a3b-instruct|512|0|8|0.8,9a106773ae,"Adrien Bowyer is the creator of the international, open-source RepRap project, and Josef Prusa became one of the leading developers of this project, which led to the development of the Prusa i3 MK2S printer."
+27,qwen2.5-coder:0.5b-instruct|1024|0|8|0.4,572e263f94,Do not disconnect the Nextruder from the Original Prusa XL.
+28,qwen3-vl:2b-instruct|512|0|10|0.4,67fa44a268,"To start using the Original Prusa MK3.5 3D printer for the first time, you need to flash the correct Original Prusa MK3.5S firmware. After the firmware update, proceed with the initial calibration and follow the steps in the handbook for the first print. You can also use PrusaSlicer to select the Original Prusa MK3.5 printer and follow the setup instructions."
+29,phi4-mini:3.8b-q4_K_M|512|25|8|0.0,6ad2944b37,"Download the latest firmware from prusa3d.com/drivers and install it. Calibrate the printer using the Selftest Wizard, focusing on the First Layer Calibration. Insert the USB drive that came with your printer and print your first object."
+30,gemma3:1b|768|25|5|0.4,dc7d3021c6,"1. Start PrusaSlicer and select Configuration -> Flash Printer Firmware.
+2. Click Browse to select the downloaded firmware file. Select the MMU3 firmware, not the MK3S+ 3D printer firmware!!
+3. Press Flash! and wait for the process to finish.
+4. Once the flashing process is finished, you can disconnect the printer from your PC.
+5. If the flashing process fails, simply restart the printer and try again. There is an 8-second window during the start-up when the bootloader (flashing) mode is active. You should start flashing the device during this 8-second window."
+31,qwen2.5-coder:0.5b-instruct|768|0|8|0.8,2e604a9b07,The Prusa Pro HT90 is a 3D printer with high-quality components and a 220-240-VAC power supply. It provides an easy-to-use interface for printing.
+32,granite4:tiny-h|256|25|8|0.4,2c68ab3d0a,"The SL1S features a high-performance UV LED panel, which has enough power to reach very short exposure times while retaining great surface properties of the printed model. Going under 1.6 seconds is possible, however, most resins won’t solidify in such a short time."
+33,qwen3-vl:2b-instruct|256|25|1|0.8,552898a18b,"The Prusa Pro HT90 3D printer handbook is a guide for the Prusa Pro HT90 3D printer that provides information on its features, settings, and usage."
+34,phi4-mini:3.8b-q4_K_M|256|0|5|0.0,16179dadad,To dry filament before printing.
+35,gemma3:1b|768|25|5|0.4,552898a18b,The Prusa Pro HT90 3D printer handbook is a manual for downloading and using the Prusa Pro HT90 3D printer.
+36,gemma3:1b|768|25|5|0.4,16179dadad,I don't know.
+37,qwen2.5-coder:0.5b-instruct|768|0|10|0.4,d59111c5f6,"PC material is significant in 3D printing according to the guide as it is a technical material with excellent toughness, tensile strength, and high-temperature resistance. However, it is very challenging to print, suitable mainly for advanced users. This does not apply to our Prusament PC Blend, which is much easier to print compared to other polycarbonates. Polycarbonate surpasses all previously mentioned materials in mechanical, chemical, and thermal resistance."
+38,phi4-mini:3.8b-q4_K_M|512|25|8|0.0,e5362692a9,On a stable surface like a workbench with a plastic tablecloth underneath.
+39,gemma3n:e2b|1024|0|10|0.4,d59111c5f6,"Polycarbonate (PC) is a technical material with excellent toughness, tensile strength, and high-temperature resistance. It is very challenging to print, suitable mainly for advanced users. Prusament PC Blend is easier to print compared to other polycarbonates. Polycarbonate surpasses all previously mentioned materials in mechanical, chemical, and thermal resistance."
+40,granite4:tiny-h|768|0|8|0.4,254d38a1fa,"You can connect a Raspberry Pi Zero W to the accessory header of the printer motherboard (EINSY) which will provide power and a serial data line for communication. After the connection, you can run applications like OctoPrint or Repetier Server to control the printer via a web browser interface. Detailed instructions for connecting Raspberry Pi Zero W can be found at help.prusa3d.com."
+41,granite4:tiny-h|768|0|8|0.4,dc7d3021c6,"To flash the MMU3 firmware on your Original Prusa MK3.5/S, follow these steps:
+
+1. Start PrusaSlicer and select Configuration -> Flash Printer Firmware.
+2. A new window will appear. Your MMU3 should be detected in the ‘Serial Port’ box. Open the drop-down menu if it's not automatically selected.
+3. Click Browse to select the downloaded MMU3 firmware file. Make sure you select the MMU3 firmware, not the MK3S+ firmware.
+4. Press Flash! and wait for the process to finish.
+5. Once the flashing process is finished, you can disconnect the printer from your PC."
+42,qwen3-vl:2b-instruct|512|0|10|0.4,a01562c8dd,"Yes, for ABS prints, ABS juice can be used and later cleaned with pure acetone. Be very gentle when applying the juice and do so while the bed is cold. Prints will attach very strongly."
+43,gemma3n:e2b|1024|0|10|0.4,27589ddedf,"The Original Prusa SL1S SPEED is an SLA, or more specifically, an MSLA 3D printer."
+44,qwen3-vl:2b-instruct|512|0|10|0.4,2c68ab3d0a,"The UV LED array in the SL1S printer is a high-performance UV LED panel that uses UV light to cure photosensitive liquid resins. It is designed to deliver short exposure times, with the capability to go under 1.6 seconds, though most resins may not solidify in such a short time. The UV LED panel is built into the printer and is used to cure the resin in a single layer, with the UV light shining through a mask to achieve precise curing."
+45,qwen2.5-coder:0.5b-instruct|256|0|8|0.0,254d38a1fa,You can connect a Raspberry Pi Zero W to a 3D printer by following the instructions provided in the manual.
+46,granite4:tiny-h|768|0|8|0.4,c830d6985e,The Einsy Rambo Board is component (13) in the Original Prusa i3 MK3S+ printer.
+47,qwen3-vl:2b-instruct|512|0|10|0.4,17b3d9dc53,"The Original Prusa i3 manual requires that users always refer to the www.prusa3d.com/drivers/ for an updated version of the handbook and that anyone operating the printer must understand the contents. It also emphasizes safety and proper handling, with a disclaimer that the company does not assume responsibility for assembly, use, or disposal."
+48,qwen2.5-coder:0.5b-instruct|256|25|8|0.0,9a106773ae,Adrien Bowyer is the creator of the Prusa i3 MK2S printer.
+49,granite4:tiny-h|768|0|8|0.4,57a8c3c113,"The Original Prusa MK3.5S is a 3D printer designed for reliable and high-quality printing. To use it properly, follow these steps:
+
+1. Read the Safety Instructions carefully before starting.
+2. Place the printer on a flat and stable surface.
+3. Download the latest firmware from prusa3d.com/drivers and install it.
+4. Calibrate the printer using the Selftest Wizard, paying special attention to the First Layer Calibration.
+5. Insert the USB drive that came with your printer and print your first object.
+6. Refer to the handbook for initial calibration and advanced features.
+7. Follow the Regular Maintenance instructions to keep your printer in perfect condition."
+50,granite4:tiny-h|256|25|8|0.4,904d53edc3,"60 Hz refers to the frequency of the electrical power supply for the SLA printer, which can be either 230 VAC, 50 Hz or 110 VAC, 60 Hz."
+51,phi4-mini:3.8b-q4_K_M|768|0|8|0.4,2ec2a102c4,Converting models for 3D printing on SL1 printers.
+52,qwen3-vl:2b-instruct|1024|25|10|0.0,a01562c8dd,"Yes, ABS can be used with the Prusa XL printer. It is recommended to use a satin print sheet for ABS materials, and the bed temperature should be set between 90-110 °C. The printing temperature should be between 220-275 °C. It is important to use acetone to join prints together and to smooth the prints for a glossy finish. Additionally, it is advised to use the Original Prusa XL Enclosure to create a stable environment, which helps reduce deformation and layer separation."
+53,granite4:tiny-h|768|0|8|0.4,e5362692a9,"The CW1S 3D printer should be placed in a horizontally stable position, preferably on a workbench. A plastic tablecloth should be used under the machine in case of resin or IPA spills. The external power supply should be placed in a way that prevents tripping or damaging the cable. It should not be placed near a source of water or in a wet environment."
+54,granite4:tiny-h|768|0|8|0.4,4548cb43ea,"The print fan measures current RPM (Revolutions Per Minute). This allows the printer to detect any problems that could cause the fan to slow down, such as a piece of filament getting stuck in it. If a fan error occurs, the fan should be checked to ensure it can rotate freely and any debris or dirt should be cleared."
+55,phi4-mini:3.8b-q4_K_M|768|0|8|0.4,d085f244d3,"The Original Prusa i3 MK3S+ printer is an unboxed kit shown in pict. 2, and detailed assembly instructions are in chapter 6.2 Printer assembly. Unpacking involves proper handling as per chapter 6.1 Printer unpacking and proper handling."
+56,phi4-mini:3.8b-q4_K_M|768|0|8|0.4,17b3d9dc53,Refer to the www.prusa3d.com/drivers/ for an updated version of the 3D printing handbook.
+57,qwen2.5-coder:0.5b-instruct|768|25|10|0.8,ca4c3fb683,"The MK2S printer supports multi-material printing, allowing users to print up to 5 colors at the same time."
+58,qwen2.5-coder:0.5b-instruct|768|0|8|0.8,9a106773ae,Adrien Bowyer is the lead developer of the international open-source RepRap project by Josef Prusa.
+59,phi4-mini:3.8b-q4_K_M|768|0|8|0.4,d59111c5f6,High-temperature resistance and mechanical strength.
+60,gemma3:1b|768|25|5|0.4,7380ca5943,"The heatbed has embedded high-temperature magnets inside, which hold removable spring steel sheets in place. On the back of the heatbed, you will find two pins that fit exactly into the cutout of the print sheet."
+61,qwen2.5-coder:0.5b-instruct|1024|0|8|0.4,eda191375d,"To contact Prusa3d tech support for your SL1S printer, you can follow these steps:
+
+1. **Insert a FAT32-formatted USB flash drive into the printer**
+2. **Navigate to Settings - Advanced Settings - Save Logs to USB 3.**
+3. **Wait until the logs are written on the USB drive.**
+4. **Once the procedure is finished, the printer will return to the Advanced Settings menu**
+5. **Remove the USB drive, plug it into your PC and look for the saved log file (.txt.gz).**
+6. **Send this file along with your description of the issue to our tech support**
+7. **Try to attach a log file if possible**"
+62,qwen2.5-coder:0.5b-instruct|768|0|10|0.4,45ebe05cf9,Prusa Research a.s. Partyzánská 188/7A
+63,phi4-mini:3.8b-q4_K_M|512|0|3|0.4,6dec7b01ff,"It ensures sharp color transitions and stable filament flow after a color change, aiming to waste as little filament as possible, with only one wipe tower used regardless of the number of objects being printed."
+64,phi4-mini:3.8b-q4_K_M|512|0|3|0.4,27589ddedf,An SLA 3D printer by Prusa Research
+65,phi4-mini:3.8b-q4_K_M|512|25|8|0.0,a964e7d03b,"ABS, PLA, etc."
+66,phi4-mini:3.8b-q4_K_M|512|0|3|0.4,7380ca5943,"The heatbed is a component of a 3D printer used to melt and extrude plastic. To prepare it for printing, place a flexible print sheet on it, aligning the rear cutout with the locking screws on the back of the heated bed."
+67,gemma3:1b|768|25|5|0.4,45ebe05cf9,"Prusa Research a.s., Partyzánská 188/7A, Prague, 170 00, Czech Republic"
+68,qwen2.5-coder:0.5b-instruct|256|25|8|0.0,67fa44a268,"To start using the Original Prusa MK3.5 3D printer for the first time, you need to flash the correct Original Prusa MK3.5S firmware before you can start using the printer."
+69,qwen2.5-coder:0.5b-instruct|768|0|8|0.8,d59111c5f6,PC material in 3D printing is significant for several reasons according to the guide.
+70,qwen2.5-coder:0.5b-instruct|256|25|8|0.0,b45f9a3449,PrusaPrinters.org
+71,qwen3-vl:2b-instruct|1024|25|10|0.0,d085f244d3,"The Original Prusa i3 MK3S+ printer is a 3D printer kit that includes the printer, accessories, and documentation. To unpack it, remove the top foam from the box, gently lift the printer up, and remove any additional foam and white zip ties securing the parts. Always hold the upper frame with the hotbed upright pointing away from you when moving the printer."
+72,phi4-mini:3.8b-q4_K_M|512|0|3|0.4,2cd5907b57,Lubricant use for Prusa Printers.
+73,qwen2.5-coder:0.5b-instruct|256|25|8|0.0,af5d1cd99a,A Stereolithography Apparatus works by using UV light to cure photosensitive liquid resins.
+74,qwen3-vl:2b-instruct|256|25|1|0.8,dc7d3021c6,I don't know.
+75,qwen3-vl:2b-instruct|1024|25|10|0.0,debdcf1650,Wear protective gloves! Resins and IPA have distinctive odors - consider wearing a simple respirator in case you find the odors irritating. The Original Prusa CW1S should be placed in a well-ventilated area!
+76,qwen2.5-coder:0.5b-instruct|1024|0|8|0.4,7380ca5943,The heatbed and how do you prepare it for printing?
+77,phi4-mini:3.8b-q4_K_M|768|0|8|0.4,4b5e153188,It may rust.
+78,qwen2.5-coder:0.5b-instruct|768|0|10|0.4,d085f244d3,"The Original Prusa i3 MK3S plus printer is a successor to the Original Prusa i3. It is a 3D printer that is designed for small and lightweight applications. The kit includes a printer control screen, LCD layout, print speed versus print quality, USB cable and Pronterface, and several other features."
+79,qwen2.5-coder:0.5b-instruct|1024|0|8|0.4,a95dcc93f5,"Prusa3d is a 3D printing company that provides software for creating and printing 3D models. It is related to the Original Prusa i3 MK3S+ printer, which is a successor to the Original Prusa i3."
+80,phi4-mini:3.8b-q4_K_M|768|0|8|0.4,7b24135a4d,It is used for washing objects printed from liquid resin.
+81,granite4:tiny-h|256|25|8|0.4,debdcf1650,"When handling isopropyl alcohol, wear protective gloves, consider wearing a respirator if the odors are irritating, and always read the instructions on the bottle before use. Be cautious as it is flammable and should not come into contact with skin or eyes."
+82,granite4:tiny-h|256|25|8|0.4,962de56897,The Original Prusa i3 MK2.5 3D printer weighs 12 kg / 6.3 kg unassembled and 12.4 kg / 7.6 kg assembled.
+83,qwen3-vl:2b-instruct|256|25|1|0.8,c99afa1946,Prusa
+84,qwen2.5-coder:0.5b-instruct|256|0|8|0.0,b45f9a3449,I don't know.
+85,phi4-mini:3.8b-q4_K_M|512|0|3|0.4,17b3d9dc53,Read and understand the contents of the Manual.
+86,qwen3-vl:30b-a3b-instruct|512|0|8|0.8,254d38a1fa,Connect the Raspberry Pi Zero W to the accessory header of the printer motherboard (EINSY) to provide power and a serial data line for communication.
+87,qwen3-vl:30b-a3b-instruct|512|0|8|0.8,6dec7b01ff,The smart wipe tower ensures sharp color transitions and stable filament flow after a color change while aiming to waste as little filament as possible. There is always only one wipe tower no matter how many objects are being printed at once. Printing multiple copies at once or printing big objects improves the overall efficiency of the filament use.
+88,phi4-mini:3.8b-q4_K_M|768|0|8|0.4,a1f59b9028,It holds the filament strings.
+89,qwen3-vl:2b-instruct|256|0|5|0.8,254d38a1fa,"You can connect a Raspberry Pi Zero W to a 3D printer by using the accessory header of the printer motherboard (EINSY), which provides power and a serial data line for communication. After the connection, you can run applications like OctoPrint or Repetier."
+90,qwen2.5-coder:0.5b-instruct|768|0|10|0.4,27589ddedf,SLA 3D printer
+91,qwen3-vl:2b-instruct|256|25|1|0.8,8109605591,help.prusa3d.com
+92,qwen3-vl:2b-instruct|256|25|1|0.8,2e604a9b07,"The Prusa Pro HT90 is a 3D printer. The safety information includes instructions for handling the printer and operating it safely, which are detailed in the manual."
+93,qwen2.5-coder:0.5b-instruct|256|25|8|0.0,c830d6985e,The Einsy Rambo Board is in the context of the Original Prusa i3 MK3S+ printer.
+94,gemma3:1b|512|25|8|0.8,02026ad142,110 VAC or 230 VAC
+95,qwen2.5-coder:0.5b-instruct|256|0|8|0.0,af5d1cd99a,Stereolithography Apparatus
+96,qwen3-vl:30b-a3b-instruct|512|0|8|0.8,dc7d3021c6,"Use a micro USB cable to connect the MMU3 unit to your PC and follow the same procedure as with the Original Prusa i3 MK3S+. Start PrusaSlicer, select Configuration -> Flash Printer Firmware, click Browse to select the downloaded MMU3 firmware file, and press Flash!."
+97,qwen2.5-coder:0.5b-instruct|256|0|8|0.0,7b24135a4d,The purpose of the gastro pan in the Original Prusa CW1 is to help preheat resins to working temperatures.
+98,qwen2.5-coder:0.5b-instruct|768|0|10|0.4,4b5e153188,"To degrease the sheet's surface, use highly concentrated isopropyl alcohol (90% or higher)."
+99,qwen2.5-coder:0.5b-instruct|256|0|8|0.0,16179dadad,The industrial filament dryer used for in 3D printing is the **Printbed Bed**.

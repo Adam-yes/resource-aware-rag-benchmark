@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="276" viewBox="0 0 1200 276" role="img" aria-labelledby="t d">
+<title id="t">Resource-Aware RAG Benchmark</title>
+<desc id="d">Repository header with four figures: configurations measured, answers judged, finalists frozen and the test rank of the selected configuration.</desc>
+
+<style>
+  svg { --bg:#fcfcfb; --plane:#f4f4f1; --ink:#0b0b0b; --ink2:#52514e; --mute:#898781;
+        --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --dot:#c9c8c1; --soft:#e7f0fb; }
+  @media (prefers-color-scheme: dark) {
+    svg { --bg:#1a1a19; --plane:#222220; --ink:#f0efec; --ink2:#c3c2b7; --mute:#898781;
+          --grid:#2c2c2a; --axis:#46463f; --border:rgba(255,255,255,.10);
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; --dot:#4f4e49; --soft:#1c2a3c; }
+  }
+  text { font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--ink); }
+  .t-title { font-size: 26px; font-weight: 650; }
+  .t-sub { font-size: 15.5px; fill: var(--ink2); }
+  .t-h { font-size: 16px; font-weight: 600; }
+  .t-lab { font-size: 13.5px; fill: var(--ink2); }
+  .t-small { font-size: 12.5px; fill: var(--mute); }
+  .t-tick { font-size: 12.5px; fill: var(--mute); font-variant-numeric: tabular-nums; }
+  .t-strong { font-size: 13.5px; font-weight: 600; }
+  .t-kpi { font-size: 38px; font-weight: 650; }
+  .card { fill: var(--bg); stroke: var(--border); stroke-width: 1; }
+  .plane { fill: var(--plane); }
+  .grid { stroke: var(--grid); stroke-width: 1; }
+  .axis { stroke: var(--axis); stroke-width: 1; }
+  .lead { stroke: var(--mute); stroke-width: 1; fill: none; }
+  .dot { fill: var(--dot); }
+  .ring { stroke: var(--bg); stroke-width: 2; }
+  .f-s1 { fill: var(--s1); } .st-s1 { stroke: var(--s1); }
+  .f-s2 { fill: var(--s2); } .st-s2 { stroke: var(--s2); }
+  .f-s3 { fill: var(--s3); } .st-s3 { stroke: var(--s3); }
+  .f-mute { fill: var(--mute); } .st-mute { stroke: var(--mute); }
+  .f-ink { fill: var(--ink); } .st-ink { stroke: var(--ink); }
+  .f-soft { fill: var(--soft); }
+  .line { fill: none; stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; }
+  .box { fill: var(--bg); stroke: var(--axis); stroke-width: 1; }
+  .box-hi { fill: var(--soft); stroke: var(--s1); stroke-width: 1.25; }
+  .arrow { stroke: var(--mute); stroke-width: 1.5; fill: none; }
+  .halo { paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+</style>
+<rect class="card" x="0.5" y="0.5" width="1199" height="275" rx="14"/>
+<text x="40.0" y="70.0" class="t-title" text-anchor="start" style="font-size:34px">Resource-Aware RAG Benchmark</text>
+<text x="40.0" y="102.0" class="t-sub" text-anchor="start" style="font-size:17px">Quality-latency trade-offs and configuration search for local RAG on technical manuals</text>
+<text x="40.0" y="128.0" class="t-small" text-anchor="start" style="font-size:13.5px">Manuscript under review  ·  Apache-2.0</text>
+<rect class="plane" x="40" y="162" width="266" height="84" rx="10"/>
+<text x="58.0" y="206.0" class="t-kpi" text-anchor="start" style="font-size:30px">960</text>
+<text x="58.0" y="226.0" class="t-strong" text-anchor="start" style="font-size:13px">configurations measured</text>
+<text x="58.0" y="240.0" class="t-small" text-anchor="start" style="font-size:11.5px">full factorial, 50 dev questions each</text>
+<rect class="plane" x="324" y="162" width="266" height="84" rx="10"/>
+<text x="342.0" y="206.0" class="t-kpi" text-anchor="start" style="font-size:30px">61,736</text>
+<text x="342.0" y="226.0" class="t-strong" text-anchor="start" style="font-size:13px">answers generated and judged</text>
+<text x="342.0" y="240.0" class="t-small" text-anchor="start" style="font-size:11.5px">local models via Ollama</text>
+<rect class="plane" x="608" y="162" width="266" height="84" rx="10"/>
+<text x="626.0" y="206.0" class="t-kpi" text-anchor="start" style="font-size:30px">43</text>
+<text x="626.0" y="226.0" class="t-strong" text-anchor="start" style="font-size:13px">finalists frozen</text>
+<text x="626.0" y="240.0" class="t-small" text-anchor="start" style="font-size:11.5px">SHA-256 hashes before any test</text>
+<rect class="plane" x="892" y="162" width="266" height="84" rx="10"/>
+<text x="910.0" y="206.0" class="t-kpi" text-anchor="start" style="font-size:30px">2 of 43</text>
+<text x="910.0" y="226.0" class="t-strong" text-anchor="start" style="font-size:13px">test rank of the selected setup</text>
+<text x="910.0" y="240.0" class="t-small" text-anchor="start" style="font-size:11.5px">on 162 unused questions</text>
+</svg>

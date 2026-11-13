@@ -1,0 +1,148 @@
+item,cfg,qid,answer
+0,qwen2.5-coder:0.5b-instruct|768|25|10|0.4,3f6e06bde1,"To flash firmware on a Prusa 3D printer using PrusaSlicer on Windows, follow these steps:
+
+1. **Download and Install PrusaSlicer**:
+   - Go to the Prusa3D website and download the latest PrusaSlicer.
+   - Install PrusaSlicer by following the installation wizard.
+
+2. **Download and Install Drivers & Apps Package**:
+   - Go to the Prusa3D website and download the latest Drivers & Apps package.
+   - Install the Drivers & Apps package by following the installation wizard.
+
+3. **Connect the Printer**:
+   - Connect your 3D printer to your PC using a USB 2.0 Type B cable.
+   - Connect the USB cable to the printer's USB slot.
+
+4. **Start PrusaSlicer**:
+   - Launch PrusaSlicer and select Configuration -> Flash Printer Firmware.
+   - A new window will appear. Your printer should be detected in the 'Serial Port' box.
+   - Open the drop-down menu if it's not automatically selected.
+   - Click Browse to select the downloaded firmware file (orange arrow).
+
+5. **Flash Firmware**:
+   - Press Flash! and wait for the process to finish.
+
+6. **Disconnect the Printer**:
+   - Disconnect the printer from your PC.
+
+7. **Check Firmware Version**:
+   - Open the printer's LCD menu and select the 'Info' option.
+   - Look for the firmware version number and compare it with the firmware available at Prusa3D.com/drivers.
+
+8. **Flash Firmware on MK3S+, go to LCD Menu - Support to find the MMU firmware version**:
+   - Go to LCD Menu - Support.
+   - Find the MMU firmware version number.
+   - Compare it with the firmware available at Prusa3D.com/drivers.
+   - If a newer firmware is available, flash it.
+
+9. **Use a micro USB cable to connect the MMU3 unit to your PC**:
+   - Insert the USB drive in the printer’s USB slot.
+   - Connect the USB cable to the MMU3 unit.
+
+10. **Start PrusaSlicer**:
+    - Go to Configuration - Flash Printer Firmware.
+    - A new window will open. Make sure the Original Prusa CW1 is selected.
+    - Click Open File and select the unpacked file from step 1.
+
+11. **Flash Firmware**:
+    - Click Flash! and wait until the process is finished.
+
+12. **Disconnect the MicroUSB cable and Restart the CW1**:
+    - Disconnect the USB cable.
+    - Restart the CW1.
+
+13. **Troubleshooting**:
+    - USB firmware update
+    - If your printer is not connected to the internet, download the firmware file from the official website https://www.prusa3d.com/drivers. Download the ZIP file to your computer, unpack it and place the update file (with .raucb extension) on a FAT32-formatted USB drive. Then insert the USB drive in the printer’s USB slot. Then go to Settings - Firmware and select the firmware file from the list.
+
+**Note**: Never turn off or reset the printer during the firmware flashing process!"
+1,qwen2.5-coder:0.5b-instruct|768|0|1|0.4,3fa97b2ab9,Pl.prusa3d.com
+2,qwen2.5-coder:0.5b-instruct|768|0|1|0.8,5ed81c4aec,"The CW1S is a proximity sensor used to detect whether a liquid container is inserted or not. Depending on the status (present / not present), the CW1S changes its operating modes automatically."
+3,qwen3-vl:2b-instruct|768|25|3|0.4,92391f60d4,All five LEDs blinking red on MMU2S indicates that the filament is loaded and needs to be unloaded. The filament must be removed from the printer and the MMU2S unit should be reset.
+4,qwen3-vl:30b-a3b-instruct|512|0|3|0.4,a238df436b,"A Hotend is a component of a 3D printer that melts and extrudes filament to create printed objects. It is essential for the 3D printing process, as it heats the filament to its melting point and pushes it through a nozzle to form layers."
+5,gemma3:1b|768|25|3|0.0,774473f71d,Moves the selector left.
+6,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,a0bc217039,"The First Layer calibration process is essential for ensuring optimal print quality when using a Prusa 3D printer with an MMU2S add-on for multi-material printing. It helps in achieving proper adhesion of the first layer to the print bed, which is crucial for the success of the entire print. This calibration is part of the necessary steps to perform before running a multi-material print for the first time, alongside IR filament sensor and Z-Axis calibrations. Proper first layer calibration ensures that the printer's nozzle is at the correct height above the bed, which affects the quality and stability of the print."
+7,qwen3-vl:30b-a3b-instruct|512|25|10|0.4,12d9b3e3f5,"Prusa is a 3D printing manufacturer based in Prague, Czech Republic, founded by Josef Prusa in 2012. It started as a small one-man startup and grew into a significant company in the 3D printing industry. Prusa Research develops and manufactures industrial-grade 3D printers, accessories, and software designed for a wide range of demanding applications. Prusa printers work using 3D printing technology, which involves creating three-dimensional objects by layering material based on digital models. The process typically includes slicing the 3D model into layers, printing each layer, and building the object layer by layer."
+8,qwen3-vl:30b-a3b-instruct|512|0|3|0.4,bdbdde362e,Troubleshooting guides for component replacements and advanced hardware issues.
+9,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,12d9b3e3f5,"Prusa and Prusa Research Prusa Pro is the professional division of Prusa Research, a 3D printing manufacturer based in Prague, Czech Republic. Prusa Pro develops and manufactures industrial-grade 3D printers, accessories, and software designed for a wide range of demanding applications. Prusa Research, founded by Josef Prusa in 2012, is a renowned Czech company specializing in 3D printing technology. The company grew from a small one-man startup project into one of the most important companies"
+10,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,4548cb43ea,The print fan does cool down the printed object.
+11,qwen2.5-coder:0.5b-instruct|768|0|1|0.4,5e8d22b21c,"The Original Prusa i3 MK3S+ enclosure provides the following features:
+
+Safety: Contains fumes and odors which are produced by certain filaments during printing - once the print finishes, open the window and then open the enclosure to quickly vent the air. Prevent unauthorized access to your 3D printer by installing an optional lock (sold separately) on the enclosure’s door.
+
+Recommended usage conditions: The enclosure is designed to be used in a controlled environment, with proper ventilation and proper cleaning. The enclosure should be placed in a well-ventilated area, with no open windows or doors.
+
+Maintenance instructions: The enclosure should be cleaned regularly to remove any debris or contaminants. The enclosure should be kept in a dry place, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area. The enclosure should be kept in a well-ventilated area, and the enclosure should be kept in a well-ventilated area."
+12,qwen2.5-coder:0.5b-instruct|768|0|1|0.4,3275d2ddf2,I don't know.
+13,gemma3:1b|768|25|3|0.0,d844c05ef4,"You need to download the correct firmware file for your Prusa3d MMU2S unit from www.prusa3d.com/drivers.
+"
+14,gemma3n:e2b|768|25|10|0.4,b5c21fcbea,The tank in the CW1 is used to hold the object during washing and drying/curing.
+15,gemma3n:e2b|768|25|10|0.4,ac001a852f,"*   Heated parts can cause severe burns.
+*   Never touch the heater block or nozzle with bare hands. Always use a recommended tool.
+*   Be careful around the hotend thermistor leads.
+*   Be careful, you can bend the heatbreak easily.
+*   The nozzle is extremely hot and could cause burns in contact with skin.
+*   Use a 7mm spanner/socket or pliers.
+*   Use a 17mm spanner.
+*   Use a 2.5 mm Allen key.
+*   Use a small plate or aluminum foil.
+*   There must always be a gap (~0.5 mm) between the nozzle and the heater block.
+*   The nozzle must be tightened/secured in the heater block, and locked against the heat break while heated."
+16,gemma3:1b|768|25|3|0.0,7e2634e5c4,Original Prusa Curing and Washing Machine (CW1)
+17,qwen3-vl:30b-a3b-instruct|512|25|10|0.8,61276b57c9,"The key specifications of the Original Prusa Curing and Washing Machine include:
+- Power supply: Input 100-240VAC, 50/60Hz, 2.0A. Output: 24V, 6.67A, 160W Max.
+- Working temperature range: 16 °C - 38 °C, indoor use only
+- Working humidity: 85 % or less
+- Device use: indoor only
+- Weight (gross / net): 7.8 kg / 6.8 kg"
+18,gemma3:1b|768|25|3|0.0,73d6f89594,I don't know.
+19,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,ba8c98f3ae,"Prusa Research a.s., Partyzánská 188/7A, Prague, 170 00, Czech Republic"
+20,qwen2.5-coder:0.5b-instruct|256|25|8|0.4,98243a0b27,"BVOH stands for ""Blind Volume of Heat,"" which is the amount of heat required to melt a substance. In 3D printing, BVOH is used to determine the temperature at which the material will melt, which is crucial for achieving the desired level of quality and precision in the final product."
+21,gemma3:1b|768|25|3|0.0,6328e743ae,0.1 - 0.4 mm (max 0.8 mm) above the MMU3 body level.
+22,qwen3-vl:30b-a3b-instruct|512|25|10|0.8,8c08ae9cc6,"A 3D printing enthusiast should know that before any service intervention, they must disconnect the 3D printer from the power source and familiarize themselves with the instructions. They should also take extra care when handling or touching parts marked with symbols, especially avoiding hot surface hazards to prevent burns. Further information on function and service can be found in the user manual or online at help.prusa3d.com. For printer-related problems, they can contact Prusa Research technical support."
+23,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,ed9e23c558,"Filament is the term for plastic provided on a spool, used in 3D printing. It is fed into the extruder of a 3D printer, where it is melted and deposited layer by layer to create 3D objects. The two different diameters of filament used in 3D printing are 2.85 mm (commonly called 3 mm) and 1.75 mm. The 1.75 mm version is more commonly used worldwide, though there is no difference in printing quality."
+24,gemma3:1b|768|25|3|0.0,726cea9926,I don't know.
+25,qwen2.5-coder:0.5b-instruct|768|0|1|0.8,774473f71d,"The Left hardware button in the MMU3 3D printer unit receives information from the unit and displays a full description of the situation, and also suggests solutions to resolve it in case it's not possible to resolve the situation automatically. Detailed troubleshooting guides can be found at help.prusa3d.com."
+26,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,90fb53c7c3,"The key steps involved in calibrating a 3D printer include ensuring the printer is on a stable surface, not manipulating it during the selftest unless prompted, having at least 5 cm of filament for the selftest and filament sensor calibration, performing the XYZ calibration by moving the Z carriage to the end stoppers and confirming its position, and completing the Z calibration by homing the X and Y axes and moving the Z axis until both sides touch the printed parts at the top. After calibration, the printer is ready for use, and the calibration should be repeated if the printer is transported or certain parts are replaced."
+27,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,b5c21fcbea,The purpose of the tank in the CW1 3D printing setup is to hold the liquid container with the propeller and isopropyl alcohol during the washing process.
+28,gemma3:1b|768|25|3|0.0,4688a08b33,I don't know.
+29,qwen2.5-coder:0.5b-instruct|512|25|10|0.8,bed4243f2d,"Maintain a 3D printer to ensure optimal performance and avoid common issues like clogging or heating errors by:
+
+1. **Regular Cleaning**: Remove any debris from the print surface and extruder feed gear. Use a clean cloth or paper towel to gently wipe away old or dirty parts.
+
+2. **Check Fan Pressure**: Ensure that the fan is properly aligned and not overcharged. Clean the fan by removing any debris and reinserting it.
+
+3. **Check Extruder Speed**: Monitor the speed of the extruder and adjust it as needed to avoid overheating. Use a tool or a fan cleaner if necessary.
+
+4. **Check Temperature**: Monitor the temperature of the print bed and ensure it is not too low. Heat up the bed if it is too low to prevent overheating.
+
+5. **Inspect Sensors**: Check all sensor readings for any signs of failure, such as broken sensors or overheating. Use a simple diagnostic tool like the 3D printer's diagnostic tools.
+
+6. **Inspect the Printer**: Remove the printer from the enclosure, inspect it for any signs of damage or failure, and replace it if necessary.
+
+7. **Consider Cleaning the Printer**: Clean the print bed and other parts to prevent contamination and increase the longevity of the printer.
+
+8. **Use a Professional**: If the printer is still malfunctioning, consider hiring a professional to inspect and repair it."
+30,gemma3n:e2b|768|25|10|0.4,51170dc854,"Documentation, USB drive with sample prints (G-codes), MK3.9 Toolset, Alcohol-saturated wipe (for initial calibration), acupuncture needle, 2× 400g Prusament PETG (to print MK3.9 upgrade parts), Spare parts, Prusa lubricant for bearings, A pack of Haribo gummy bears."
+31,gemma3:1b|768|25|3|0.0,c8c2056462,Send an email to info@prusa3d.com and/or use our chat at prusa3d.com. Try to describe your problem as accurately as possible and include pictures or videos.
+32,qwen3-vl:30b-a3b-instruct|768|0|10|0.0,7de505de83,"To update the firmware on your Original Prusa MK4S, download the correct version from prusa3d.com/drivers, unzip the file, copy the .BBF file to a FAT32-formatted USB drive, insert the USB drive into the printer, and restart the device using the reset button. The update process should begin automatically; confirm flashing by selecting FLASH and pressing the knob.
+
+If you encounter nozzle extrusion problems or calibration failures, check the firmware version via LCD Menu - Info - Version info, ensure the firmware is up-to-date, and perform the Selftest again. For calibration failures, ensure you push the nozzle with enough force during calibration. If issues persist, refer to the troubleshooting section in the manual or visit help.prusa3d.com for further assistance."
+33,gemma3n:e2b|768|25|10|0.4,162b5f978d,"PrusaSlicer is an in-house developed slicer based on the open-source project Slic3r. It has features such as auto-updating profiles for over 3 dozen filaments, variable layer height, custom supports and modifier meshes, differential print settings, and firmware flasher.
+
+To use it:
+1. Find a suitable 3D object for printing and download it (usually in .stl or .obj format).
+2. Import the object into PrusaSlicer.
+3. Use the built-in tools to scale, move, and rotate the object. Find the optimal orientation: large flat base, minimal overhangs.
+4. Add supports if necessary. If printing a figure with a face, rotate the object to avoid support contact with the face.
+5. Select the infill type and density.
+6. Select the nozzle diameter (default is 0.4mm) and layer height.
+7. Slice the object.
+8. Inspect the preview.
+9. Export the G-code and print it."
+34,qwen3-vl:30b-a3b-instruct|512|25|5|0.8,cff0dd7b0d,"Damaged cables pose a safety risk, including the risk of electric shock or fire, and tripping over the cable can cause injury or damage to the printer."
+35,gemma3n:e2b|768|25|10|0.4,b4712737d2,"PrusaControl is the easiest way to get perfect prints on the MK3 and should be used when first experiencing 3D printing. It allows you to specify the printing material, print quality, and print speed. You can also manipulate the object, vary the placement on the printbed, and resize it. It can also add color changes to existing gcodes."
+36,qwen2.5-coder:0.5b-instruct|768|0|1|0.4,141f798d83,7-20 seconds
+37,qwen3-vl:30b-a3b-instruct|512|25|10|0.4,33e8c21d44,"You can contact tech support by sending an email to info@prusa3d.com or using the Live chat at prusa3d.com. First, check the last sections of the manual or visit help.prusa3d.com for troubleshooting guides."
+38,qwen2.5-coder:0.5b-instruct|768|0|1|0.8,cde46cf168,Prusament is a brand of 3D printing equipment developed by Prusa Systems.
+39,gemma3n:e2b|768|25|10|0.4,2eb21a2851,"Prague, Czech Republic"

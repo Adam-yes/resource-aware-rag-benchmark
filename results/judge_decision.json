@@ -1,0 +1,17 @@
+{
+ "primary": "gpt-oss:20b",
+ "evidence": {
+  "n": 100,
+  "kappa_raters": 0.9443702714730752,
+  "gpt-oss:20b": {
+   "n": 100,
+   "spearman_human": 0.5974238046498176,
+   "mean_abs_error": 0.23070000000000002
+  },
+  "qwen3-coder:30b": {
+   "n": 100,
+   "spearman_human": 0.614808000761393,
+   "mean_abs_error": 0.21619999999999998
+  }
+ }
+}

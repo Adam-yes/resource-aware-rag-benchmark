@@ -1,0 +1,9 @@
+model,answers,failed
+gemma3:1b,6000,0
+gemma3n:e2b,6000,0
+granite3.3:2b,6000,0
+granite4:tiny-h,6000,0
+phi4-mini:3.8b-q4_K_M,6000,0
+qwen2.5-coder:0.5b-instruct,6000,0
+qwen3-vl:2b-instruct,6050,0
+qwen3-vl:30b-a3b-instruct,6050,0

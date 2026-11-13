@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Environments and local runtime
+.venv/
+venv/
+runtime/
+
+# Generated locally
+results/ragbench.sqlite
+results/run.log
+results/results.tex
+results/figures/
+results/tables/*.tex
+.ipynb_checkpoints/
+
+# Tooling and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
