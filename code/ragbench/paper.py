@@ -283,6 +283,9 @@ def figures():
     plot_table()
     nb = nbformat.read(PLOTS / "figures.ipynb", as_version=4)
     NotebookClient(nb, timeout=600, kernel_name="python3", resources={"metadata": {"path": str(PLOTS)}}).execute()
+    for c in nb.cells:  # Keep the printed sizes; the rendered figures stay out of the stored notebook.
+        if c.cell_type == "code":
+            c.outputs = [o for o in c.outputs if o.output_type == "stream"]
     nbformat.write(nb, PLOTS / "figures.ipynb")
     out = RESULTS / "figures"
     shutil.rmtree(out, ignore_errors=True)

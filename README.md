@@ -78,7 +78,7 @@ The configuration selected on the development questions ranked 2nd of 43 on 162 
 | `results/frozen_finalists.json` | Finalists and hashes, written before any test question ran |
 | `results/report.json`, `results/tables/` | Statistics reported in the manuscript |
 | `results/human_*` | Rating sheets, keys and completed ratings |
-| `plots/results_table.xlsx`, `plots/figures.ipynb` | Results table and the notebook that draws every figure of the manuscript from it |
+| `plots/results_table.xlsx`, `plots/figures.ipynb` | Results table and the notebook that draws every figure of the manuscript from it; the figures are written to `plots/figures/` and are not stored here |
 | `docs/assets/` | README figures and the script that draws them from `results/` |
 
 The README figures are drawn by `python docs/assets/make_figures.py` (standard library only).

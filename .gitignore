@@ -15,6 +15,7 @@ results/run.log
 results/results.tex
 results/figures/
 results/tables/*.tex
+plots/figures/
 .ipynb_checkpoints/
 
 # Tooling and OS files

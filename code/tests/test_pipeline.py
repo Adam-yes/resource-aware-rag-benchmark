@@ -422,6 +422,12 @@ def _figure_check():
     return ns["check"], plt
 
 
+def test_stored_notebook_holds_no_rendered_figure():
+    import nbformat
+    nb = nbformat.read(Path(__file__).resolve().parents[2] / "plots/figures.ipynb", as_version=4)
+    assert all(o.output_type == "stream" for c in nb.cells if c.cell_type == "code" for o in c.outputs)
+
+
 def test_figure_check_rejects_overlap_size_and_covered_points():
     check, plt = _figure_check()
     plt.rcParams.update({k: 8 for k in ("font.size", "axes.labelsize", "xtick.labelsize", "ytick.labelsize", "legend.fontsize")})
